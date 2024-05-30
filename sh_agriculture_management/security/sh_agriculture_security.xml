@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="0">
+    <record model="ir.module.category" id="sh_category_agriculture">
+        <field  name="name">Agriculture</field>
+        <field name="sequence">25</field>
+    </record>
+
+
+
+    <record id="group_worker" model="res.groups">
+        <field name="category_id" ref="sh_category_agriculture"/>
+        <field name="name">Worker</field>
+    </record>
+
+    <record id="group_manager" model="res.groups">
+        <field name="category_id" ref="sh_category_agriculture"/>
+        <field name="implied_ids" eval="[Command.link(ref('group_worker'))]"/>
+        <field name="name">Manager</field>
+    </record>
+
+    </data>
+</odoo>

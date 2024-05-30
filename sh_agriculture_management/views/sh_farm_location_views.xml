@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!--====Form View=====-->
+
+    <record id='sh_farm_location_form_view' model='ir.ui.view'>
+        <field name="name">sh.farm.location.form</field>
+        <field name="model">sh.farm.location</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="sh_location" />
+                            <field name="sh_location_address" />
+
+                        </group>
+                        <group>
+                            <label for="sh_location_size" string="Size" />
+                            <div class="o_row" name="sh_location_size">
+                                <field name="sh_location_size" class="oe_inline" />
+                                <field name="sh_location_size_value" />
+                            </div>
+                            <field name="sh_soil_id" />
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Land Details">
+
+                            <form string="">
+                                <sheet>
+                                    <group>
+                                        <group>
+                                            <label for="sh_rainfall" string="Rainfall per Season" />
+                                            <div class="o_row" name="sh_rainfall">
+                                                <field name="sh_rainfall" class="oe_inline" />
+                                                <field name="sh_rainfall_uom" />
+                                            </div>
+                                            <label for="sh_avrage_summer_temp"
+                                                string="Average Summer Temp" />
+                                            <div class="o_row" name="sh_avrage_summer_temp">
+                                                <field name="sh_avrage_summer_temp"
+                                                    class="oe_inline" />
+                                                <field name="sh_avrage_summer_temp_uom" />
+                                            </div>
+                                            <label for="sh_avrage_winter_temp"
+                                                string="Average Winter Temp" />
+                                            <div class="o_row" name="sh_avrage_winter_temp">
+                                                <field name="sh_avrage_winter_temp"
+                                                    class="oe_inline" />
+                                                <field name="sh_avrage_summer_temp_uom" />
+                                            </div>
+                                            <label for="sh_moisture_content"
+                                                string="Average Moisture content Of Air" />
+                                            <div class="o_row" name="sh_moisture_content">
+                                                <field name="sh_moisture_content"
+                                                    class="oe_inline" />
+                                                <field name="sh_moisture_content_id" />
+                                            </div>
+
+                                        </group>
+                                        <group>
+                                            <label for="sh_avrage_sunlight_day_per_year"
+                                                string="Average Sunlight Day Per Year" />
+                                            <div class="o_row"
+                                                name="sh_avrage_sunlight_day_per_year">
+                                                <field name="sh_avrage_sunlight_day_per_year"
+                                                    class="oe_inline" />
+                                                <field name="sh_avrage_sunlight_day_per_year_id" />
+                                            </div>
+                                            <field name="sh_water_availibility" required="1" />
+                                            <field name="sh_electricity_availibility" required="1" />
+                                            <field name="sh_distance_from_any_market" />
+                                            <field name="sh_distance_from_your_designated_godown" />
+                                        </group>
+                                    </group>
+                                </sheet>
+                            </form>
+                        </page>
+
+                        <page string="Specific Yield Capacity Per Season">
+                            <field name="sh_yield_capacity_ids">
+                                <tree editable="bottom">
+                                    <field name="product_id" string="Crop"
+                                        domain="[('is_agri','=',True), ('agri_crop','=',True)]"
+                                        context="{'default_is_agri': True,'default_agri_crop': True}"
+                                        required="1" />
+                                    <field name="sh_yield_meter" string="Yield Capacity" />
+                                    <field name="sh_yield_meter_uom" string="Unit of Measure" />
+                                    <field name="sh_hectare_to_meter" string="Total" invisible="1" />
+                                    <field name="sh_total_yield" string="Total Yield" />
+                                    <field name="sh_total_yield_meter_uom" string="Unit of Measure" />
+                                    <field name="sh_remaining_yield_capacity" string="Remaining Yield" />
+                                </tree>
+                            </field>
+                        </page>
+                        <page string="About Land">
+                            <label for="sh_land_description" string="About Land" />
+                            <field name="sh_land_description" />
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+
+    <record id="sh_farm_location_tree_view" model="ir.ui.view">
+        <field name="name">sh.farm.location.tree</field>
+        <field name="model">sh.farm.location</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="sh_location" />
+            </tree>
+        </field>
+    </record>
+
+    <record id="sh_farm_location_action" model="ir.actions.act_window">
+        <field name="name">Farm Location</field>
+        <field name="res_model">sh.farm.location</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Click here to create new Farm Location.
+            </p>
+        </field>
+    </record>
+
+
+</odoo>

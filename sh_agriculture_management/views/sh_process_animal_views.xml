@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="sh_crops_processes_animal_tree_view" model="ir.ui.view">
+        <field name="name">sh.process.animals.tree</field>
+        <field name="model">sh.process.animals</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="animal_id" />
+                <field name="begin_date" />
+                <field name="finish_date" />
+                <field name="total_animal" />
+                <field name="animal_description" />
+            </tree>
+        </field>
+    </record>
+
+    <record id="sh_crops_processes_animal_action" model="ir.actions.act_window">
+        <field name="name">Crops Animal</field>
+        <field name="res_model">sh.process.animals</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Click here to create new record.
+            </p>
+        </field>
+    </record>
+</odoo>

@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!--==============Form
+    View================-->
+
+    <record id='sh_diseaes_crops_form_view' model='ir.ui.view'>
+        <field name="name">sh.disease.crops.form</field>
+        <field name="model">sh.disease.crops</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="sh_disease_id" string="Disease Name" />
+                            <field name="sh_agri_crops_id" />
+
+                        </group>
+                        <group>
+                            <field name="details" />
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Disease Details">
+                            <group>
+                                <field name="symptoms" />
+                                <field name="survival_and_spread" />
+                                <field name="suitable_conditions" />
+                                <field name="cause_description" />
+                            </group>
+                        </page>
+
+                        <page string="Disease Cure">
+                            <group>
+                                <field name="precautions" />
+                                <field name="medications" />
+                                <field name="cure_description" />
+                            </group>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+
+    <record id="sh_diseaes_crops_tree_view" model="ir.ui.view">
+        <field name="name">sh.disease.crops.tree</field>
+        <field name="model">sh.disease.crops</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="sh_disease_id" string="Disease Name" />
+                <field name="sh_agri_crops_id"
+                    invisible="context.get('disease')" />
+                <field name="details" />
+            </tree>
+        </field>
+    </record>
+
+    <record id="sh_diseaes_crops_action" model="ir.actions.act_window">
+        <field name="name">Crops Disease</field>
+        <field name="res_model">sh.disease.crops</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="view_mode">tree,form</field>
+        <field name="context">{'disease': 1}</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Click here to create new vehicles detail.
+            </p>
+        </field>
+    </record>
+
+
+</odoo>

@@ -1,0 +1,239 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="report_sh_agriculture_crops">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="doc">
+                <t t-call="web.external_layout">
+                    <div class="row ">
+                        <div class="col-12 border border-dark text-center">
+                            <h2 class="fw-bold">Crop Details</h2>
+                        </div>
+                    </div>
+                    <div class="row mt-3 border border-1">
+                        <div class="col-6 text-start" style="padding-top: 20px;padding-left: 4px;">
+                            <span style='font-size : 25px;' t-field="doc.product_id" />
+                        </div>
+                        <t t-if="doc.sh_crops_img">
+                            <div class="col-6 text-end"
+                                style="padding-top: 5px; padding-bottom: 5px; padding-right: 60px;">
+                                <img t-att-src="image_data_uri(doc.sh_crops_img)"
+                                    style="max-height: auto; max-width: 100px;" />
+                            </div>
+                        </t>
+                    </div>
+
+
+                    <div class="mt-3 row border border-1">
+                        <div class="col-4 p-2 border-end">
+                            <strong style='font-size : 15px'>Period To Produce Crop :</strong>
+                        </div>
+                        <div class="col-2 p-2 border-end">
+                            <span style='font-size : 15px'
+                                t-field="doc.sh_crops_duration" />
+                            <span t-field="doc.sh_crop_duration_day" />
+                        </div>
+                        <div class="col-4 p-2 border-end">
+                            <strong style='font-size : 15px'>Crop Warehouse :</strong>
+                        </div>
+                        <div class="col-2 p-2">
+                            <span style='font-size : 15px' t-field="doc.sh_crops_warehouse_id.name" />
+                        </div>
+                    </div>
+
+                    <div class="row border border-top-0 border-1">
+                        <div class="col-4 p-2 border-end">
+                            <strong style='font-size : 15px'>Crop Season :</strong>
+                        </div>
+                        <div class="col-2 p-2 border-end">
+                            <span style='font-size : 15px' t-field="doc.sh_crop_season" />
+                        </div>
+                        <div class="col-4 p-2 border-end">
+                            <strong style='font-size : 15px'>Crops Stock Location :</strong>
+                        </div>
+                        <div class="col-2 p-2">
+                            <span style='font-size : 15px'
+                                t-field="doc.sh_crops_stock_location_id.name" />
+                        </div>
+                    </div>
+
+
+                    <div class="row mt-4">
+                        <div class="col-12">
+                            <h3 class="fw-bold">Crop's Raw Materials</h3>
+                        </div>
+                    </div>
+                    <table class="table table-sm o_main_table  mt-4 border border-1">
+                        <thead>
+                            <tr class="border border-1">
+                                <th class="text-start">Product</th>
+                                <th class="text-start">Quantity</th>
+                                <th class="text-start">Unit of Measure</th>
+                                <th class="text-start">Description</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <t t-foreach="doc.sh_crop_raw_material_ids" t-as="raw_material">
+
+                                <tr class="border border-top-0 border-1">
+                                    <td>
+                                        <span t-field="raw_material.product_id.name" />
+                                    </td>
+                                    <td>
+                                        <span t-field="raw_material.quantity" />
+                                    </td>
+                                    <td>
+                                        <span t-field="raw_material.product_uom_category_id.name" />
+                                    </td>
+                                    <td>
+                                        <span t-field="raw_material.description" />
+                                    </td>
+
+                                </tr>
+                            </t>
+                        </tbody>
+                    </table>
+
+
+                    <!-- <div class="row mt-4">
+                        <div class="col-12">
+                            <h3 class="fw-bold">Crop's Labours</h3>
+                        </div>
+                    </div>
+                    <table class="table table-sm o_main_table  mt-4 border border-1">
+                        <thead>
+                            <tr class="border border-1">
+                                <th class="text-start">Product</th>
+                                <th class="text-start">Quantity</th>
+                                <th class="text-start">Unit of Measure</th>
+                                <th class="text-start">Description</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <t t-foreach="doc.sh_crop_labours_ids" t-as="crop_labours">
+
+                                <tr class="border border-top-0 border-1">
+                                    <td>
+                                        <span t-field="crop_labours.product_id.name" />
+                                    </td>
+                                    <td>
+                                        <span t-field="crop_labours.quantity" />
+                                    </td>
+                                    <td>
+                                        <span t-field="crop_labours.product_uom_category_id.name" />
+                                    </td>
+                                    <td>
+                                        <span t-field="crop_labours.description" />
+                                    </td>
+
+                                </tr>
+                            </t>
+                        </tbody>
+                    </table> -->
+
+
+                    <!-- <div class="row mt-4">
+                        <div class="col-12">
+                            <h3 class="fw-bold">Crop's Overheads</h3>
+                        </div>
+                    </div>
+                    <table class="table table-sm o_main_table  mt-4 border border-1">
+                        <thead>
+                            <tr class="border border-1">
+                                <th class="text-start">Product</th>
+                                <th class="text-start">Quantity</th>
+                                <th class="text-start">Unit of Measure</th>
+                                <th class="text-start">Description</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <t t-foreach="doc.sh_crop_overhead_ids" t-as="crop_overhead">
+
+                                <tr class="border border-top-0 border-1">
+                                    <td>
+                                        <span t-field="crop_overhead.product_id.name" />
+                                    </td>
+                                    <td>
+                                        <span t-field="crop_overhead.quantity" />
+                                    </td>
+                                    <td>
+                                        <span t-field="crop_overhead.product_uom_category_id.name" />
+                                    </td>
+                                    <td>
+                                        <span t-field="crop_overhead.description" />
+                                    </td>
+                                </tr>
+                            </t>
+                        </tbody>
+                    </table> -->
+
+
+                    <div class="row mt-4">
+                        <div class="col-12">
+                            <h3 class="fw-bold">Crop's Disease</h3>
+                        </div>
+                    </div>
+                    <table class="table table-sm o_main_table  mt-4 border border-1">
+                        <thead>
+                            <tr class="border border-1">
+                                <th class="text-start">Crop's Disease Cure</th>
+                                <th class="text-start">Details</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <t t-foreach="doc.sh_diseaescrops_ids" t-as="crop_diseaes">
+
+                                <tr class="border border-top-0 border-1">
+                                    <td>
+                                        <span t-field="crop_diseaes.sh_disease_id" />
+                                    </td>
+                                    <td>
+                                        <span t-field="crop_diseaes.details" />
+                                    </td>
+                                </tr>
+                            </t>
+                        </tbody>
+                    </table>
+
+
+                    <div class="row mt-4">
+                        <div class="col-12">
+                            <h3 class="fw-bold">List of Processes</h3>
+                        </div>
+                    </div>
+                    <table class="table table-sm o_main_table  mt-4 border border-1">
+                        <thead>
+                            <tr class="border border-1">
+                                <th class="text-start">Process</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <t t-foreach="doc.sh_list_process_ids" t-as="list_process">
+
+                                <tr class="border border-top-0 border-1">
+                                    <td>
+                                        <span
+                                            t-field="list_process.sh_task_id.sudo().name" />
+                                    </td>
+                                </tr>
+                            </t>
+                        </tbody>
+                    </table>
+
+                    <div class="row mt-4">
+                        <div class="col-12">
+                            <h3 class="fw-bold">Crop's Description</h3>
+                        </div>
+                    </div>
+                    <div class="row border border-1">
+                        <div class="col-12 p-2 border-end">
+                            <span style='font-size : 15px' t-field="doc.sh_crops_description" />
+                        </div>
+                    </div>
+
+
+                </t>
+            </t>
+        </t>
+
+    </template>
+</odoo>

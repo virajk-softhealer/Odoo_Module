@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- === FOrm View ===-->
+
+    <record id='sh_incident_on_crops_form_view' model='ir.ui.view'>
+        <field name="name">sh.incident.crops.form</field>
+        <field name="model">sh.incident.crops</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="name" />
+                            <field name="crop_name_id" />
+                            <field name="incident_date" />
+                        </group>
+                        <group>
+                            <field name="task_name" />
+                            <!-- <field name="location_name_id" /> -->
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Incident's Description">
+                            <field name="description" />
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+
+    <record id="sh_incident_on_crops_tree_view" model="ir.ui.view">
+        <field name="name">sh.incident.crops.tree</field>
+        <field name="model">sh.incident.crops</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name" />
+                <field name="crop_name_id" />
+                <!-- <field name="location_name_id" /> -->
+                <field name="task_name" />
+                <field name="incident_date" />
+                <field name="description" />
+            </tree>
+        </field>
+    </record>
+
+    <record id="sh_incident_on_crops_action" model="ir.actions.act_window">
+        <field name="name">Incident On Crops </field>
+        <field name="res_model">sh.incident.crops</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Click here to create new record.
+            </p>
+        </field>
+    </record>
+</odoo>

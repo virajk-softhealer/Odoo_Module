@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id='sh_farmer_inherite_res_partner_form_view' model='ir.ui.view'>
+        <field name="name">sh.farmer.inherite.res.partner.form.view</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="base.view_partner_form" />
+        <field name="arch" type="xml">
+
+            <xpath expr="//notebook" position="inside">
+                <page string="Agriculture Detail" groups='sh_agriculture_management.group_manager'>
+                    <form>
+                        <group>
+                            <group>
+                                <group>
+                                    <field name="farmer" />
+                                    <!-- <field name="farm_location" /> -->
+                                </group>
+                                <group>
+                                    <field name="animal" />
+                                </group>                                
+                            </group>
+                            <label for="animal_description" attrs="{'invisible': [('animal', '=', False)]}"/>
+                            <field name="animal_description" class="oe_inline" attrs="{'invisible': [('animal', '=', False)]}"/>
+                        </group>
+                    </form>
+                </page>
+
+            </xpath>
+        </field>
+    </record>
+
+
+    <record id="sh_configure_agri_farmers_action" model="ir.actions.act_window">
+        <field name="name">Agriculture Farmers</field>
+        <field name="res_model">res.partner</field>
+        <field name="domain">[('farmer', '=', True)]</field>
+        <field name="context">{'default_farmer': True}</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="view_mode">kanban,tree,form</field>
+    </record>
+
+    <!-- <record id="sh_configure_agri_farm_location_action" model="ir.actions.act_window">
+        <field name="name">Agriculture Farm Locations</field>
+        <field name="res_model">res.partner</field>
+        <field name="domain">[('farm_location', '=', True)]</field>
+        <field name="context">{'default_farm_location': True}</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="view_mode">kanban,tree,form</field>
+    </record> -->
+
+    <record id="sh_configure_agri_animal_action" model="ir.actions.act_window">
+        <field name="name">Agriculture Animal</field>
+        <field name="res_model">res.partner</field>
+        <field name="domain">[('animal', '=', True)]</field>
+        <field name="context">{'default_animal': True}</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="view_mode">kanban,tree,form</field>
+    </record>
+
+</odoo>
+       

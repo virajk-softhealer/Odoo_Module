@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- === Form View ====-->
+
+    <record id='sh_agri_vehicles_form_view' model='ir.ui.view'>
+        <field name="name">sh.agri.vehicles.form</field>
+        <field name="model">sh.agri.vehicles</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="fleet_vehicle_id" />
+                            <!-- <field name="total_vehicle" /> -->
+                        </group>
+                        <group>
+                            <field name="begin_date" />
+                            <field name="finish_date" />
+                        </group>
+                    </group>
+                    <notebook>
+                        <page name="name" string="Vehicle's Description">
+                            <group>
+                                <field name="description" />
+                            </group>
+
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+
+    <record id="sh_agriculture_vehicle_tree_view" model="ir.ui.view">
+        <field name="name">sh.agri.vehicle.tree</field>
+        <field name="model">sh.agri.vehicles</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="fleet_vehicle_id" />
+                <!-- <field name="total_vehicle" /> -->
+                <field name="begin_date" />
+                <field name="finish_date" />
+                <field name="description" />
+            </tree>
+        </field>
+    </record>
+
+    <record id="sh_configure_agri_vehicles_action" model="ir.actions.act_window">
+        <field name="name">Agriculture Vehicles</field>
+        <field name="res_model">sh.agri.vehicles</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Click here to create new vehicles detail.
+            </p>
+        </field>
+    </record>
+</odoo>

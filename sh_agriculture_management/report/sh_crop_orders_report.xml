@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="report_crop_order">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="doc">
+                <t t-call="web.external_layout">
+                    <div class="row ">
+                        <div class="col-12 border border-dark text-center">
+                            <h3 class="fw-bold">Crop Order</h3>
+                        </div>
+                    </div>
+                    <div class="row ">
+                        <div class="col-12 border border-top-0 border-dark text-center">
+                            <h3 class="fw-bold">
+                                <span t-field="doc.name" />
+                            </h3>
+
+                        </div>
+                    </div>
+                    <div class="row ">
+                        <div class="col-12 border border-top-0 border-dark">
+                            <h3 class="fw-bold ps-2">
+                                <span t-field="doc.sh_agriculture_crops_id.product_id.name" />
+                            </h3>
+
+                        </div>
+                    </div>
+
+                    <div class="mt-3 row border border-1">
+                        <div class="col-3 p-2 border-end">
+                            <strong style='font-size : 15px'>Partner :</strong>
+                        </div>
+                        <div class="col-3 p-2 border-end">
+                            <span style='font-size : 15px' t-field="doc.partner_id.name" />
+                        </div>
+                        <div class="col-3 p-2 border-end">
+                            <strong style='font-size : 15px'>Process Start :</strong>
+                        </div>
+                        <div class="col-3 p-2">
+                            <span style='font-size : 15px' t-field="doc.process_start" />
+                        </div>
+                    </div>
+
+                    <div class="row border border-top-0 border-1">
+                        <div class="col-3 p-2 border-end">
+                            <strong style='font-size : 15px'>Inspector :</strong>
+                        </div>
+                        <div class="col-3 p-2 border-end">
+                            <span style='font-size : 15px' t-field="doc.user_id.name" />
+                        </div>
+                        <div class="col-3 p-2 border-end">
+                            <strong style='font-size : 15px'>Expected Delivery :</strong>
+                        </div>
+                        <div class="col-3 p-2">
+                            <span style='font-size : 15px' t-field="doc.expected_delivery" />
+                        </div>
+                    </div>
+
+                    <div class="row border border-top-0 border-1">
+                        <div class="col-3 p-2 border-end">
+                            <strong style='font-size : 15px'>Crop Farmer :</strong>
+                        </div>
+                        <div class="col-3 p-2 border-end">
+                            <span style='font-size : 15px' t-field="doc.farmer_id.name" />
+                        </div>
+                        <div class="col-3 p-2 border-end">
+                            <strong style='font-size : 15px'>Related Company :</strong>
+                        </div>
+                        <div class="col-3 p-2">
+                            <span style='font-size : 15px' t-field="doc.company_id.name" />
+                        </div>
+                    </div>
+
+                    <div class="row border border-top-0 border-1">
+                        <div class="col-3 p-2 border-end">
+                            <strong style='font-size : 15px'>Related Project :</strong>
+                        </div>
+                        <div class="col-3 p-2 border-end">
+                            <span style='font-size : 15px' t-field="doc.project_id.name" />
+                        </div>
+                        <div class="col-3 p-2 border-end">
+                            <strong style='font-size : 15px'>Order State :</strong>
+                        </div>
+                        <div class="col-3 p-2">
+                            <span style='font-size : 15px' t-field="doc.sh_state" />
+                        </div>
+                    </div>
+
+                    <div class="mt-3 row border border-1">
+                        <div class="col-12 p-2 border-end">
+                            <strong style='font-size : 15px'>Order's Description :</strong>
+                        </div>
+                    </div>
+                    <div class="row border border-top-0 border-1">
+                        <div class="col-12 p-2 border-end">
+                            <span style='font-size : 15px' t-field="doc.order_description" />
+                        </div>
+                    </div>
+                    <div class="row border border-top-0 border-1">
+                        <div class="col-12 p-2 border-end">
+                            <strong style='font-size : 15px'>Order's Notes :</strong>
+                        </div>
+                    </div>
+                    <div class="row border border-top-0 border-1">
+                        <div class="col-12 p-2 border-end">
+                            <span style='font-size : 15px' t-field="doc.order_note" />
+                        </div>
+                    </div>
+
+                </t>
+            </t>
+        </t>
+    </template>
+</odoo>

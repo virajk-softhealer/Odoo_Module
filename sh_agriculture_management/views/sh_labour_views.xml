@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="sh_labours_form_view" model="ir.ui.view">
+        <field name="name">sh.labour.form</field>
+        <field name="model">sh.labour</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="name" />
+                            <field name="total_labour" />
+                            <field name="sh_list_process_id" invisible="1" />
+                            <field name="project_task_id" />
+                            
+                        </group>
+                        <group>
+                            <field name="begin_date" />
+                            <field name="finish_date" />
+                            <field name="total_days" />
+                        </group>
+                    </group>
+                    <notebook>
+                        <page name="name" string="Description">
+                            <group>
+                                <field name="description" />
+                            </group>
+
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    <record id="sh_labours_tree_view" model="ir.ui.view">
+        <field name="name">sh.labour.tree</field>
+        <field name="model">sh.labour</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name" />
+                <field name="total_labour" />
+                <field name="begin_date" />
+                <field name="finish_date" />
+                <field name="project_task_id" />
+                <field name="description" />
+                <field name="total_days" />
+            </tree>
+        </field>
+    </record>
+
+    <record id="sh_labours_action" model="ir.actions.act_window">
+        <field name="name">Labours</field>
+        <field name="res_model">sh.labour</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Click here to create new record.
+            </p>
+        </field>
+    </record>
+</odoo>

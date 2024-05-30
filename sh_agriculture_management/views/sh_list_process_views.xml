@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+
+    <record id='sh_list_process_form_view' model='ir.ui.view'>
+        <field name="name">sh.list.process.form</field>
+        <field name="model">sh.list.process</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="sh_task_id"
+                                domain="[('is_agri_task', '=', True)]"
+                                context="{ 'default_is_agri_task': True}" />
+                        </group>
+                        <group>
+                            <field name="sh_agri_crops_id" />
+                            <!-- <field name="labours_total" invisible="1"/> -->
+
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Process Equipments">
+                            <field name="sh_process_equipment_ids">
+                                <tree editable="bottom">
+                                    <field name="equipment" />
+                                    <field name="serial_no" />
+                                    <field name="alloted_date" />
+                                    <field name="owner" />
+                                    <field name="technician" />
+                                    <field name="equipment_category" />
+                                </tree>
+                            </field>
+                        </page>
+                        <page string="Process Animals">
+                            <field name="sh_process_animals_ids">
+                                <tree editable="bottom">
+                                    <field name="animal_id"
+                                        domain="[('animal', '=', True)]"
+                                        context="{ 'default_animal': True}" />
+                                    <field name="total_animal" />
+                                    <field name="begin_date" />
+                                    <field name="finish_date" />
+                                    <field name="animal_description" />
+                                </tree>
+                            </field>
+                        </page>
+                        <page string="Process Fleets">
+                            <field name="sh_process_vehicles_ids">
+                                <tree editable="bottom">
+                                    <field name="sh_agri_vehicles_id" options="{'no_create': True}" />
+                                    <!-- <field name="total_vehicle" /> -->
+                                    <field name="begin_date" />
+                                    <field name="finish_date" />
+                                    <field name="description" />
+                                </tree>
+                            </field>
+                        </page>
+                        <page string="Crop Labourers">
+                            <field name="sh_labour_ids">
+                                <tree editable="bottom">
+                                    <field name="name" />
+                                    <!-- <field name="total_labour" />
+                                    <field name="begin_date" />
+                                    <field name="finish_date" />
+                                    <field name="description" />
+                                    <field name="total_days" /> -->
+                                </tree>
+                            </field>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+
+    <record id="sh_list_process_tree_view" model="ir.ui.view">
+        <field name="name">sh.list.process.tree</field>
+        <field name="model">sh.list.process</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="sh_task_id" />
+                <field name="sh_agri_crops_id" />
+            </tree>
+        </field>
+    </record>
+
+    <record id="sh_crops_processes_action" model="ir.actions.act_window">
+        <field name="name">Crops Processes</field>
+        <field name="res_model">sh.list.process</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Click here to create new record.
+            </p>
+        </field>
+    </record>
+
+</odoo>

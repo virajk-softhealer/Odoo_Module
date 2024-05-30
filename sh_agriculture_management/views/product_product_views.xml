@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id='sh_product_product_inherit_form_view' model='ir.ui.view'>
+        <field name="name">sh.product.product.inherit.form</field>
+        <field name="model">product.product</field>
+        <field name="inherit_id" ref="product.product_normal_form_view" />
+        <field name="arch" type="xml">
+            <xpath expr="//div[@name='options']" position="after">
+                <style>
+                    div[name="agri_option"] .o_field_boolean > div {
+                    margin-left: 0px;
+                    margin-right: 0px;
+                    }
+                </style>
+                <div name="agri_option">
+                    <span class="d-inline-block">
+                        <field name="is_agri" />
+                        <label for="is_agri" />
+                    </span>
+                </div>
+            </xpath>
+
+            <xpath expr="//notebook" position="inside">
+                <page string="Agriculture"
+                    attrs="{'invisible': [('is_agri', '=', False)]}">
+                    <group>
+                        <field name="agri_crop" />
+                        <field name="crop_raw_material" />
+                        <!-- <field name="crop_labour" />
+                        <field name="crop_overhead" /> -->
+                    </group>
+                </page>
+            </xpath>
+        </field>
+    </record>
+</odoo>

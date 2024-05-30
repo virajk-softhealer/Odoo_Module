@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+
+    <!-- ========= Form View ============== -->
+
+
+    <record id='sh_crop_request_wizard_form_view' model='ir.ui.view'>
+        <field name="name">sh.crop.request.wizard.form</field>
+        <field name="model">sh.crop.request.wizard</field>
+        <field name="arch" type="xml">
+            <form string="Create Crop Request">
+                <group>
+                    <group>
+
+                    </group>
+                    <group>
+
+                    </group>
+
+                </group>
+                <notebook>
+                    <page name="Crop Request Orders">
+                        <field name="crop_id" >
+                            <tree editable="bottom" create="0">
+                                <field name="partner_id" force_save="1"/>
+                                <field name="being_date" />
+                                <field name="finish_date" />
+                                <field name="user_id" />
+                                <field name="sh_agriculture_crops_id" force_save="1"/>
+                                <field name="estimated_quantity" force_save="1"/>
+                                <field name="crop_uom_id" />
+                                <field name="sh_farm_location_id" string="Farm Location"/>
+                                <field name="sh_yeild_capacity" string="Yield Capacity"/>
+                                <field name="sh_remaining_yield_capacity" string="Remaining Yeild Capacity"/>
+                                <field name="farmer_id" required='1'
+                                context="{'default_farmer': True}" options="{'no_create': True}"/>
+                                <field name="sale_order_id" invisible="1"/>
+
+                            </tree>
+                        </field>
+
+                    </page>
+                </notebook>
+
+
+                <footer>
+                    <button name="crop_request_create" string="Create" type="object"
+                        default_focus="1"
+                        class="oe_highlight" />
+                    <button string="Cancel" class="btn btn-default" special="cancel" />
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <!-- ========= Action ============== -->
+    <record id="sh_crop_request_wizard_action" model="ir.actions.act_window">
+        <field name="name">Create Crop Request</field>
+        <field name="res_model">sh.crop.request.wizard</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+    </record>
+
+
+</odoo>

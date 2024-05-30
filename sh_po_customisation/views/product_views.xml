@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+     <!-- IR_ACTION_SERVER -->
+    <record model="ir.actions.server" id="action_update_available__pos_bool">
+      <field name="name">Update Available in POS</field>
+      <field name="model_id" ref="product.model_product_template"/>
+      <field name="binding_model_id" ref="product.model_product_template"/>
+      <field name="state">code</field>
+      <field name="code">
+          action = records.action_mass_available_pos_bool_update()
+      </field>
+   </record>
+
+</odoo>

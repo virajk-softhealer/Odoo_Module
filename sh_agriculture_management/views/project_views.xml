@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id='agricuture_project_inherit_form_view_project' model='ir.ui.view'>
+        <field name="name">project.project.inherit.form</field>
+        <field name="model">project.project</field>
+        <field name="inherit_id" ref="project.edit_project" />
+        <field name="arch" type="xml">
+
+            <xpath expr="//field[@name='user_id']" position="after">
+                <field name="sh_crop_order_id" />
+                <field name="is_agri_project" invisible="1" />
+
+            </xpath>
+            <xpath expr="//div[hasclass('oe_button_box')]" position="inside">
+                <button class="oe_stat_button"
+                    name="action_view_crop_order"
+                    icon="fa-cart-plus"
+                    type="object">
+                    <div class="o_field_widget o_stat_info">
+                        <span class="o_stat_text">Crop Orders</span>
+                    </div>
+                </button>
+                <button class="oe_stat_button"
+                    name="action_view_related_crop"
+                    icon="fa-leaf"
+                    type="object">
+                    <div class="o_field_widget o_stat_info">
+                        <span class="o_stat_text">Related Crops</span>
+                    </div>
+                </button>
+
+            </xpath>
+
+
+        </field>
+    </record>
+    <record id='agricuture_project_task_inherit_form_view_project_task' model='ir.ui.view'>
+        <field name="name">project.task.inherit.form</field>
+        <field name="model">project.task</field>
+        <field name="inherit_id" ref="project.view_task_form2" />
+        <field name="arch" type="xml">
+
+            <xpath expr="//field[@name='user_ids']" position="after">
+                <field name="sh_crop_order_id" />
+                <field name="is_agri_task" invisible="1" />
+            </xpath>
+
+            <xpath expr="//notebook" position="inside">
+                <page string="Crops Equipments">
+                    <field name="sh_process_equipment_ids">
+                        <tree editable="bottom">
+                            <field name="equipment" />
+                            <field name="serial_no" string="Serial Number" />
+                            <field name="owner" />
+                            <field name="technician" />
+                            <field name="equipment_category" />
+                        </tree>
+                    </field>
+                </page>
+                <page string="Crop's Animals">
+                    <field name="sh_process_animals_ids">
+                        <tree editable="bottom">
+                            <field name="animal_id"
+                                domain="[('animal', '=', True)]"
+                                context="{ 'default_animal': True}" />
+                            <field name="total_animal" string="Quantity" />
+                            <field name="begin_date" />
+                            <field name="finish_date" />
+                            <field name="animal_description" />
+                        </tree>
+                    </field>
+                </page>
+                <page string="Crop's Fleets">
+                    <field name="sh_process_vehicles_ids">
+                        <tree editable="bottom">
+                            <field name="sh_agri_vehicles_id" />
+                            <!-- <field name="total_vehicle" string="Quantity" /> -->
+                            <!-- <field name="begin_date" />
+                            <field name="finish_date" />
+                            <field name="description" /> -->
+                        </tree>
+                    </field>
+                </page>
+                <page string="Crop Labourers">
+                    <field name="sh_labour_ids">
+                        <tree editable="bottom">
+                            <field name="name" />
+                            <field name="total_labour" />
+                            <field name="begin_date" />
+                            <field name="finish_date" />
+                            <field name="description" />
+                            <field name="total_days" />
+                        </tree>
+                    </field>
+                </page>
+            </xpath>
+        </field>
+    </record>
+
+
+    <record id="sh_agri_project_action" model="ir.actions.act_window">
+        <field name="name">Agriculture Project</field>
+        <field name="res_model">project.project</field>
+        <field name="domain">[('is_agri_project', '=', True)]</field>
+        <field name="context">{'default_is_agri_project': True}</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="view_mode">kanban,tree,form</field>
+    </record>
+
+    <record id="sh_agri_task_action" model="ir.actions.act_window">
+        <field name="name">Agriculture Task</field>
+        <field name="res_model">project.task</field>
+        <field name="domain">[('is_agri_task', '=', True)]</field>
+        <field name="context">{'default_is_agri_task': True}</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="view_mode">kanban,tree,form</field>
+    </record>
+
+</odoo>
