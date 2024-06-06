@@ -8,6 +8,9 @@
         <field name="model">sh.farm.location</field>
         <field name="arch" type="xml">
             <form>
+                <header>
+                    <button name="yield_reset_crop_quantity" string="Reser Yield Capacity" type="object" class="oe_highlight"/>
+                </header>
                 <sheet>
                     <group>
                         <group>

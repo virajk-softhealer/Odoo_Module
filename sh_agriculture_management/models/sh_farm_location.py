@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 # Part of Softhealer Technologies.
-from odoo import fields, models, api
+from odoo import fields, models, api,Command
 
 
 class ShFarmLocation(models.Model):
@@ -61,3 +61,13 @@ class ShFarmLocation(models.Model):
     # sh_hectare_to_meter = fields.Integer()
     # sh_total_yield = fields.Integer()
     # sh_total_yield_uom_id = fields.Many2one('uom.uom')
+
+
+    # Yield Reset Btn 
+    def yield_reset_crop_quantity(self):
+
+        if self.sh_yield_capacity_ids:
+            for rec in self.sh_yield_capacity_ids:
+                self.write({'sh_yield_capacity_ids':[
+                    Command.update(rec.id,{'sh_remaining_yield_capacity':rec.sh_total_yield})
+                ]})

@@ -261,31 +261,21 @@
                         <h1>
                             <field name="name" readonly="1" />
                         </h1>
-                        <!-- <label for="sh_agriculture_crops_id" string="Agriculture Crop" /> -->
-                        <!-- <field name="sh_agriculture_crops_id" />
-                        <div class="o_row" name="sh_estimated_quantity">
-                            <label for="sh_estimated_quantity" string="Estimated Quantity" />
-                            <field name="sh_estimated_quantity" class="oe_inline" />
-                            <field name="uom_id" />
-                            <label for="sh_actual_qty" string="Actual Quantity" />
-                            <field name="sh_actual_qty" class="oe_inline" />
-                            <field name="uom_id" class="oe_inline"/>
-                        </div> -->
-
-
                     </div>
                     <group>
                         <group>
-                            <field name="sh_agriculture_crops_id" options="{'no_create': True}"/>
+                            <field name="sh_agriculture_crops_id" options="{'no_create': True}" readonly="1"/>
+
                             <label for="sh_estimated_quantity" string="Estimated Quantity" />
-                            <div class="o_row" name="sh_estimated_quantity">
-                                <field name="sh_estimated_quantity" class="oe_inline" />
-                                <field name="uom_id" />
+                            <div class="o_row oe_no_space"  name="sh_estimated_quantity">
+                                <field name="sh_estimated_quantity"/>
+                                <field name="uom_id" class="oe_inline"/>
                             </div>
-                            <field name="partner_id" />
-                            <field name="expected_delivery" />
-                            <field name="process_start" />
-                            <field name="farmer_id" context="{ 'default_farmer': True}" options="{'no_create': True}"/>
+
+                            <field name="partner_id" readonly="1"/>
+                            <field name="expected_delivery" readonly="1"/>
+                            <field name="process_start" readonly="1"/>
+                            <field name="farmer_id" readonly="1" context="{ 'default_farmer': True}" options="{'no_create': True}"/>
                         </group>
                         <group>
                             <field name="sale_order_id" readonly="1" />

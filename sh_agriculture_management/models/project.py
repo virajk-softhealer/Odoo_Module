@@ -17,7 +17,7 @@ class sh_project(models.Model):
 
         crop_order['domain'] = [
             ('name', '=',  self.sh_crop_order_id.name)]
-        print("\n\n\n\n\n==========", crop_order['domain'])
+        # print("\n\n\n\n\n==========", crop_order['domain'])
         return {
             'type': 'ir.actions.act_window',
             'view_mode': 'tree,form',
@@ -37,7 +37,7 @@ class sh_project(models.Model):
         related_crop = self.env["ir.actions.actions"]._for_xml_id("sh_agriculture_management.sh_agriculture_crops_action")
         related_crop['domain'] = [
             ('product_id', '=',  self.sh_crop_order_id.sh_agriculture_crops_id.product_id.id)]
-        print("\n\n\n\n\n==========", related_crop['domain'])
+        # print("\n\n\n\n\n==========", related_crop['domain'])
         return {
             'type': 'ir.actions.act_window',
             'view_mode': 'tree,form',

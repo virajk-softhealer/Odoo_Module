@@ -131,7 +131,7 @@ class sh_crop_orders(models.Model):
         
 
         for process_list in self.sh_agriculture_crops_id.sh_list_process_ids:
-            print('\n\n\n......TASK......', process_list.sh_task_id.name)
+            # print('\n\n\n......TASK......', process_list.sh_task_id.name)
             if process_list:
 
 
@@ -198,7 +198,7 @@ class sh_crop_orders(models.Model):
         
         if self.sh_actual_qty < self.sh_estimated_quantity:
             self.sh_state = 'in_progress'
-            print("\n\n\n\nCrop ORDER",self.sh_agriculture_crops_id)
+            # print("\n\n\n\nCrop ORDER",self.sh_agriculture_crops_id)
             return {
                 'type': 'ir.actions.act_window',
                 'name': _('Reason For Less Than Estimated Quantity'),
@@ -256,7 +256,7 @@ class sh_crop_orders(models.Model):
 
         task['domain'] = [
             ('sh_crop_order_id', '=',  self.id)]
-        print("\n\n\n\n\n==========", task['domain'])
+        # print("\n\n\n\n\n==========", task['domain'])
         return {
             'type': 'ir.actions.act_window',
             'view_mode': 'tree,form',
@@ -351,7 +351,7 @@ class sh_crop_orders(models.Model):
         fleet['domain'] = [
             ('sh_list_process_id.sh_agri_crops_id', '=', self.sh_agriculture_crops_id.id)]
 
-        print("\n\n\n\nFeet",fleet['domain'])
+        # print("\n\n\n\nFeet",fleet['domain'])
         return {
             'type': 'ir.actions.act_window',
             'view_mode':'tree',
@@ -383,4 +383,5 @@ class sh_crop_orders(models.Model):
         }
 
     def action_view_labours(self):
-        print('\n\n\n\n===Self',self)
+        pass
+        # print('\n\n\n\n===Self',self)

@@ -19,15 +19,17 @@
 
         <menuitem name="Incident On Crops" id="sh_incident_on_crops_menu"
             action="sh_incident_on_crops_action" sequence="4" />
+        <menuitem name="Labours" id="sh_labours_menu"
+                action="sh_labours_action" groups="sh_agriculture_management.group_manager" sequence="5" />
 
-        <menuitem name="Agriculture Project" id="sh_agri_project_menu" sequence="5">
+        <menuitem name="Agriculture Project" id="sh_agri_project_menu" sequence="6">
             <menuitem name="Agri Project" id="sh_project_menu"
                 action="sh_agri_project_action" sequence="1" />
             <menuitem name="Agri Task" id="sh_agri_task_menu"
                 action="sh_agri_task_action" sequence="2" />
         </menuitem>
 
-        <menuitem name="Configurations" id="sh_configuration_menu" groups="sh_agriculture_management.group_manager" sequence="6" >
+        <menuitem name="Configurations" id="sh_configuration_menu" groups="sh_agriculture_management.group_manager" sequence="7" >
             <menuitem name="Agri Farmers" id="sh_configure_agri_farmers_menu"
                 action="sh_configure_agri_farmers_action" groups="sh_agriculture_management.group_manager" sequence="1" />
             <menuitem name="Agri Farm Locations" id="sh_farm_location_menu"
@@ -40,8 +42,6 @@
                 action="sh_season_action" groups="sh_agriculture_management.group_manager" sequence="10" />
             <menuitem name="Soil" id="sh_soil_menu"
                 action="sh_soil_action" groups="sh_agriculture_management.group_manager" sequence="11" />
-            <menuitem name="Labours" id="sh_labours_menu"
-                action="sh_labours_action" groups="sh_agriculture_management.group_manager" sequence="12" />
         </menuitem>
 
         <menuitem name="Agriculture Product" id="sh_agri_product_menu"
