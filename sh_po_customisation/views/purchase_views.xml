@@ -11,12 +11,6 @@
                 <field name="sh_available_quantity" readonly="1"/>
                 <field name="sh_barcode" readonly="1"/>
             </xpath>
-
-            <!-- Button Add  -->
-            <!-- <xpath expr="//button[@name='button_cancel']" position="after">
-                <button name="sh_purchase_order_done" states="draft,sent" string="PO Confirm " type="object" />
-            </xpath> -->
-            
         </field>
     </record>
 </odoo>

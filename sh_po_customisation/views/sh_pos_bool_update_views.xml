@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
 
+    <!-- FORM VIEW  -->
     <record id="sh_pos_bool_update_form" model="ir.ui.view">
         <field name="name">sh.pos.bool.update.form</field>
         <field name="model">sh.pos.bool.update</field>

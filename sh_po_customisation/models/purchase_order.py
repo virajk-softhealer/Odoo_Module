@@ -6,9 +6,7 @@ from datetime import date
 class PurchaseOrder(models.Model):
     _inherit= 'purchase.order'
 
-    # def sh_purchase_order_done(self):
-    #        pass
-
+    # METHOD INHERIT 
     def button_confirm(self):
         res = super(PurchaseOrder,self).button_confirm()
 
@@ -53,6 +51,10 @@ class PurchaseOrderLine(models.Model):
     related='product_id.qty_available' )
     sh_barcode = fields.Char(string='Barcode',
     related='product_id.barcode')
+
+    price_unit = fields.Float(
+        string='Unit Price', required=True, digits=(12,3),
+        compute="_compute_price_unit_and_date_planned_and_name", readonly=False, store=True)
 
     # ONCHANGE METHOD 
     @api.onchange('product_id')
