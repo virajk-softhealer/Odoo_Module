@@ -26,3 +26,9 @@ v16.0.5 (Date : 30th june 2023)
 v16.0.6 (Date : 10th Jan 2023)
 ================================
  = [IMP] city name correction from google response
+
+
+v16.0.7 (Date : 7th June 2024)
+================================
+ = Crm.Lead Model Under Same Flow Added (Res.Partner Model Flow)
+ = Address Search in char field after that data store in crm.lead model field under.
