@@ -1,0 +1,444 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* sh_employee_custom_checklist
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 16.0beta\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-09-27 10:48+0000\n"
+"PO-Revision-Date: 2022-09-27 10:48+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: sh_employee_custom_checklist
+#: model_terms:ir.ui.view,arch_db:sh_employee_custom_checklist.sh_import_employee_custom_entry_wizard
+#: model_terms:ir.ui.view,arch_db:sh_employee_custom_checklist.sh_import_employee_custom_exit_wizard
+msgid "<i class=\"fa fa-download\"/> CSV file"
+msgstr ""
+
+#. module: sh_employee_custom_checklist
+#: model_terms:ir.ui.view,arch_db:sh_employee_custom_checklist.sh_import_employee_custom_entry_wizard
+#: model_terms:ir.ui.view,arch_db:sh_employee_custom_checklist.sh_import_employee_custom_exit_wizard
+msgid "<i class=\"fa fa-download\"/> Excel file"
+msgstr ""
+
+#. module: sh_employee_custom_checklist
+#: model_terms:ir.ui.view,arch_db:sh_employee_custom_checklist.sh_hr_employee_custom_checklist_form_view_inherit
+msgid "<span style=\"padding-left:50px;\">Entry Checklist Template </span>"
+msgstr ""
+
+#. module: sh_employee_custom_checklist
+#: model_terms:ir.ui.view,arch_db:sh_employee_custom_checklist.sh_hr_employee_custom_checklist_form_view_inherit
+msgid "<span style=\"padding-left:50px;\">Exit Checklist Template </span>"
+msgstr ""
+
+#. module: sh_employee_custom_checklist
+#: model_terms:ir.ui.view,arch_db:sh_employee_custom_checklist.sh_import_employee_custom_entry_wizard
+#: model_terms:ir.ui.view,arch_db:sh_employee_custom_checklist.sh_import_employee_custom_exit_wizard
+msgid "<strong>Download Sample:</strong>"
+msgstr ""
+
+#. module: sh_employee_custom_checklist
+#: model_terms:ir.ui.view,arch_db:sh_employee_custom_checklist.sh_import_employee_custom_entry_wizard
+#: model_terms:ir.ui.view,arch_db:sh_employee_custom_checklist.sh_import_employee_custom_exit_wizard
+msgid "Apply"
+msgstr ""
+
+#. module: sh_employee_custom_checklist
+#: model:ir.model.fields.selection,name:sh_employee_custom_checklist.selection__import_entry_custom_cl_wizard__import_type__csv
+#: model:ir.model.fields.selection,name:sh_employee_custom_checklist.selection__import_exit_custom_cl_wizard__import_type__csv
+msgid "CSV File"
+msgstr ""
+
+#. module: sh_employee_custom_checklist
+#: model_terms:ir.ui.view,arch_db:sh_employee_custom_checklist.sh_hr_employee_custom_checklist_form_view_inherit
+#: model_terms:ir.ui.view,arch_db:sh_employee_custom_checklist.sh_import_employee_custom_entry_wizard
+#: model_terms:ir.ui.view,arch_db:sh_employee_custom_checklist.sh_import_employee_custom_exit_wizard
+msgid "Cancel"
+msgstr ""
+
+#. module: sh_employee_custom_checklist
+#: model:ir.model.fields.selection,name:sh_employee_custom_checklist.selection__employee_entry_custom_checklist_line__state__cancelled
+#: model:ir.model.fields.selection,name:sh_employee_custom_checklist.selection__employee_exit_custom_checklist_line__state__cancelled
+#: model:ir.model.fields.selection,name:sh_employee_custom_checklist.selection__hr_employee__employee_entry_complete_state__cancelled
+#: model:ir.model.fields.selection,name:sh_employee_custom_checklist.selection__hr_employee__employee_exit_complete_state__cancelled
+msgid "Cancelled"
+msgstr ""
+
+#. module: sh_employee_custom_checklist
+#: model:ir.model.fields,field_description:sh_employee_custom_checklist.field_employee_entry_custom_checklist_template__entry_checklist_template
+#: model:ir.model.fields,field_description:sh_employee_custom_checklist.field_employee_exit_custom_checklist_template__exit_checklist_template
+msgid "Check List"
+msgstr ""
+
+#. module: sh_employee_custom_checklist
+#: model:ir.model.fields,field_description:sh_employee_custom_checklist.field_hr_employee__entry_custom_checklist_ids
+msgid "Checklist"
+msgstr ""
+
+#. module: sh_employee_custom_checklist
+#: model:ir.model.fields,field_description:sh_employee_custom_checklist.field_hr_employee__exit_custom_checklist_ids
+msgid "Checklist "
+msgstr ""
+
+#. module: sh_employee_custom_checklist
+#: model_terms:ir.ui.view,arch_db:sh_employee_custom_checklist.sh_hr_employee_custom_checklist_form_view_inherit
+msgid "Checklist Completed"
+msgstr ""
+
+#. module: sh_employee_custom_checklist
+#: model:ir.model.fields,field_description:sh_employee_custom_checklist.field_employee_entry_custom_checklist__company_id
+#: model:ir.model.fields,field_description:sh_employee_custom_checklist.field_employee_entry_custom_checklist_line__company_id
+#: model:ir.model.fields,field_description:sh_employee_custom_checklist.field_employee_entry_custom_checklist_template__company_id
+#: model:ir.model.fields,field_description:sh_employee_custom_checklist.field_employee_exit_custom_checklist__company_id
+#: model:ir.model.fields,field_description:sh_employee_custom_checklist.field_employee_exit_custom_checklist_line__company_id
+#: model:ir.model.fields,field_description:sh_employee_custom_checklist.field_employee_exit_custom_checklist_template__company_id
+#: model:ir.model.fields,field_description:sh_employee_custom_checklist.field_import_entry_custom_cl_wizard__company_id
+#: model:ir.model.fields,field_description:sh_employee_custom_checklist.field_import_exit_custom_cl_wizard__company_id
+msgid "Company"
+msgstr ""
+
+#. module: sh_employee_custom_checklist
+#: model_terms:ir.ui.view,arch_db:sh_employee_custom_checklist.sh_hr_employee_custom_checklist_form_view_inherit
+msgid "Complete"
+msgstr ""
+
+#. module: sh_employee_custom_checklist
+#: model:ir.model.fields.selection,name:sh_employee_custom_checklist.selection__employee_entry_custom_checklist_line__state__completed
+#: model:ir.model.fields.selection,name:sh_employee_custom_checklist.selection__employee_exit_custom_checklist_line__state__completed
+#: model:ir.model.fields.selection,name:sh_employee_custom_checklist.selection__hr_employee__employee_entry_complete_state__completed
+#: model:ir.model.fields.selection,name:sh_employee_custom_checklist.selection__hr_employee__employee_exit_complete_state__completed
+msgid "Completed"
+msgstr ""
+
+#. module: sh_employee_custom_checklist
+#: model:ir.model.fields,field_description:sh_employee_custom_checklist.field_employee_entry_custom_checklist__create_uid
+#: model:ir.model.fields,field_description:sh_employee_custom_checklist.field_employee_entry_custom_checklist_line__create_uid
+#: model:ir.model.fields,field_description:sh_employee_custom_checklist.field_employee_entry_custom_checklist_template__create_uid
+#: model:ir.model.fields,field_description:sh_employee_custom_checklist.field_employee_exit_custom_checklist__create_uid
+#: model:ir.model.fields,field_description:sh_employee_custom_checklist.field_employee_exit_custom_checklist_line__create_uid
+#: model:ir.model.fields,field_description:sh_employee_custom_checklist.field_employee_exit_custom_checklist_template__create_uid
+#: model:ir.model.fields,field_description:sh_employee_custom_checklist.field_import_entry_custom_cl_wizard__create_uid
+#: model:ir.model.fields,field_description:sh_employee_custom_checklist.field_import_exit_custom_cl_wizard__create_uid
+msgid "Created by"
+msgstr ""
+
+#. module: sh_employee_custom_checklist
+#: model:ir.model.fields,field_description:sh_employee_custom_checklist.field_employee_entry_custom_checklist__create_date
+#: model:ir.model.fields,field_description:sh_employee_custom_checklist.field_employee_entry_custom_checklist_line__create_date
+#: model:ir.model.fields,field_description:sh_employee_custom_checklist.field_employee_entry_custom_checklist_template__create_date
+#: model:ir.model.fields,field_description:sh_employee_custom_checklist.field_employee_exit_custom_checklist__create_date
+#: model:ir.model.fields,field_description:sh_employee_custom_checklist.field_employee_exit_custom_checklist_line__create_date
+#: model:ir.model.fields,field_description:sh_employee_custom_checklist.field_employee_exit_custom_checklist_template__create_date
+#: model:ir.model.fields,field_description:sh_employee_custom_checklist.field_import_entry_custom_cl_wizard__create_date
+#: model:ir.model.fields,field_description:sh_employee_custom_checklist.field_import_exit_custom_cl_wizard__create_date
+msgid "Created on"
+msgstr ""
+
+#. module: sh_employee_custom_checklist
+#: model:ir.model.fields,field_description:sh_employee_custom_checklist.field_employee_entry_custom_checklist_line__updated_date
+#: model:ir.model.fields,field_description:sh_employee_custom_checklist.field_employee_exit_custom_checklist_line__updated_date
+msgid "Date"
+msgstr ""
+
+#. module: sh_employee_custom_checklist
+#: model:ir.model.fields,field_description:sh_employee_custom_checklist.field_employee_entry_custom_checklist__description
+#: model:ir.model.fields,field_description:sh_employee_custom_checklist.field_employee_entry_custom_checklist_line__description
+#: model:ir.model.fields,field_description:sh_employee_custom_checklist.field_employee_exit_custom_checklist__description
+#: model:ir.model.fields,field_description:sh_employee_custom_checklist.field_employee_exit_custom_checklist_line__description
+msgid "Description"
+msgstr ""
+
+#. module: sh_employee_custom_checklist
+#: model:ir.model.fields,field_description:sh_employee_custom_checklist.field_employee_entry_custom_checklist__display_name
+#: model:ir.model.fields,field_description:sh_employee_custom_checklist.field_employee_entry_custom_checklist_line__display_name
+#: model:ir.model.fields,field_description:sh_employee_custom_checklist.field_employee_entry_custom_checklist_template__display_name
+#: model:ir.model.fields,field_description:sh_employee_custom_checklist.field_employee_exit_custom_checklist__display_name
+#: model:ir.model.fields,field_description:sh_employee_custom_checklist.field_employee_exit_custom_checklist_line__display_name
+#: model:ir.model.fields,field_description:sh_employee_custom_checklist.field_employee_exit_custom_checklist_template__display_name
+#: model:ir.model.fields,field_description:sh_employee_custom_checklist.field_import_entry_custom_cl_wizard__display_name
+#: model:ir.model.fields,field_description:sh_employee_custom_checklist.field_import_exit_custom_cl_wizard__display_name
+msgid "Display Name"
+msgstr ""
+
+#. module: sh_employee_custom_checklist
+#: model:ir.model,name:sh_employee_custom_checklist.model_hr_employee
+#: model:ir.model.fields,field_description:sh_employee_custom_checklist.field_employee_entry_custom_checklist_line__employee_id
+#: model:ir.model.fields,field_description:sh_employee_custom_checklist.field_employee_exit_custom_checklist_line__employee_id
+msgid "Employee"
+msgstr ""
+
+#. module: sh_employee_custom_checklist
+#: model:ir.actions.act_window,name:sh_employee_custom_checklist.action_menu_employee_entry_custom_checklist
+msgid "Employee Entry Checklist"
+msgstr ""
+
+#. module: sh_employee_custom_checklist
+#: model:ir.actions.act_window,name:sh_employee_custom_checklist.action_menu_employee_entry_custom_checklist_template
+msgid "Employee Entry Checklist Template"
+msgstr ""
+
+#. module: sh_employee_custom_checklist
+#: model:ir.model,name:sh_employee_custom_checklist.model_employee_entry_custom_checklist
+#: model:ir.ui.menu,name:sh_employee_custom_checklist.menu_employee_entry_custom_checklist
+msgid "Employee Entry Custom Checklist"
+msgstr ""
+
+#. module: sh_employee_custom_checklist
+#: model:ir.model,name:sh_employee_custom_checklist.model_employee_entry_custom_checklist_line
+msgid "Employee Entry Custom Checklist Line"
+msgstr ""
+
+#. module: sh_employee_custom_checklist
+#: model:ir.model,name:sh_employee_custom_checklist.model_employee_entry_custom_checklist_template
+#: model:ir.ui.menu,name:sh_employee_custom_checklist.menu_employee_entry_custom_checklist_template
+msgid "Employee Entry Custom Checklist Template"
+msgstr ""
+
+#. module: sh_employee_custom_checklist
+#: model:ir.actions.act_window,name:sh_employee_custom_checklist.action_menu_employee_exit_custom_checklist
+msgid "Employee Exit Checklist"
+msgstr ""
+
+#. module: sh_employee_custom_checklist
+#: model:ir.actions.act_window,name:sh_employee_custom_checklist.action_menu_employee_exit_custom_checklist_template
+msgid "Employee Exit Checklist Template"
+msgstr ""
+
+#. module: sh_employee_custom_checklist
+#: model:ir.model,name:sh_employee_custom_checklist.model_employee_exit_custom_checklist
+#: model:ir.ui.menu,name:sh_employee_custom_checklist.menu_employee_exit_custom_checklist
+msgid "Employee Exit Custom Checklist"
+msgstr ""
+
+#. module: sh_employee_custom_checklist
+#: model:ir.model,name:sh_employee_custom_checklist.model_employee_exit_custom_checklist_line
+msgid "Employee Exit Custom Checklist Line"
+msgstr ""
+
+#. module: sh_employee_custom_checklist
+#: model:ir.model,name:sh_employee_custom_checklist.model_employee_exit_custom_checklist_template
+#: model:ir.ui.menu,name:sh_employee_custom_checklist.menu_employee_exit_custom_checklist_template
+msgid "Employee Exit Custom Checklist Template"
+msgstr ""
+
+#. module: sh_employee_custom_checklist
+#: model_terms:ir.ui.view,arch_db:sh_employee_custom_checklist.sh_hr_employee_custom_checklist_kanban_view_inherit
+msgid "Entry"
+msgstr ""
+
+#. module: sh_employee_custom_checklist
+#: model:ir.model.fields,field_description:sh_employee_custom_checklist.field_hr_employee__custom_checklist_entry_template_ids
+msgid "Entry CheckList Template"
+msgstr ""
+
+#. module: sh_employee_custom_checklist
+#: model_terms:ir.ui.view,arch_db:sh_employee_custom_checklist.sh_hr_employee_custom_checklist_form_view_inherit
+#: model_terms:ir.ui.view,arch_db:sh_employee_custom_checklist.sh_hr_employee_custom_checklist_tree_view_inherit
+msgid "Entry Checklist"
+msgstr ""
+
+#. module: sh_employee_custom_checklist
+#: model:ir.model.fields,field_description:sh_employee_custom_checklist.field_hr_employee__entry_custom_checklist
+msgid "Entry Checklist Completed"
+msgstr ""
+
+#. module: sh_employee_custom_checklist
+#: model_terms:ir.ui.view,arch_db:sh_employee_custom_checklist.sh_entry_custom_checklist_template_search_view
+msgid "Entry Checklist Template"
+msgstr ""
+
+#. module: sh_employee_custom_checklist
+#: model_terms:ir.ui.view,arch_db:sh_employee_custom_checklist.sh_employee_entry_custom_checklist_search_view_inherit
+msgid "Entry Complete Checklist"
+msgstr ""
+
+#. module: sh_employee_custom_checklist
+#: model:ir.model.fields,field_description:sh_employee_custom_checklist.field_hr_employee__employee_entry_complete_state
+msgid "Entry State"
+msgstr ""
+
+#. module: sh_employee_custom_checklist
+#: model_terms:ir.ui.view,arch_db:sh_employee_custom_checklist.sh_employee_entry_custom_checklist_search_view_inherit
+msgid "Entry Uncompleted Checklist"
+msgstr ""
+
+#. module: sh_employee_custom_checklist
+#: model:ir.model.fields.selection,name:sh_employee_custom_checklist.selection__import_entry_custom_cl_wizard__import_type__excel
+#: model:ir.model.fields.selection,name:sh_employee_custom_checklist.selection__import_exit_custom_cl_wizard__import_type__excel
+msgid "Excel File"
+msgstr ""
+
+#. module: sh_employee_custom_checklist
+#: model_terms:ir.ui.view,arch_db:sh_employee_custom_checklist.sh_hr_employee_custom_checklist_kanban_view_inherit
+msgid "Exit"
+msgstr ""
+
+#. module: sh_employee_custom_checklist
+#: model:ir.model.fields,field_description:sh_employee_custom_checklist.field_hr_employee__custom_checklist_exit_template_ids
+msgid "Exit CheckList Template"
+msgstr ""
+
+#. module: sh_employee_custom_checklist
+#: model_terms:ir.ui.view,arch_db:sh_employee_custom_checklist.sh_hr_employee_custom_checklist_form_view_inherit
+#: model_terms:ir.ui.view,arch_db:sh_employee_custom_checklist.sh_hr_employee_custom_checklist_tree_view_inherit
+msgid "Exit Checklist"
+msgstr ""
+
+#. module: sh_employee_custom_checklist
+#: model:ir.model.fields,field_description:sh_employee_custom_checklist.field_hr_employee__exit_custom_checklist
+msgid "Exit Checklist Completed"
+msgstr ""
+
+#. module: sh_employee_custom_checklist
+#: model_terms:ir.ui.view,arch_db:sh_employee_custom_checklist.sh_employee_exit_custom_checklist_template_search_view
+msgid "Exit Checklist Template"
+msgstr ""
+
+#. module: sh_employee_custom_checklist
+#: model_terms:ir.ui.view,arch_db:sh_employee_custom_checklist.sh_employee_entry_custom_checklist_search_view_inherit
+msgid "Exit Complete Checklist"
+msgstr ""
+
+#. module: sh_employee_custom_checklist
+#: model:ir.model.fields,field_description:sh_employee_custom_checklist.field_hr_employee__employee_exit_complete_state
+msgid "Exit State"
+msgstr ""
+
+#. module: sh_employee_custom_checklist
+#: model_terms:ir.ui.view,arch_db:sh_employee_custom_checklist.sh_employee_entry_custom_checklist_search_view_inherit
+msgid "Exit Uncompleted Checklist"
+msgstr ""
+
+#. module: sh_employee_custom_checklist
+#: model:ir.model.fields,field_description:sh_employee_custom_checklist.field_import_entry_custom_cl_wizard__file
+#: model:ir.model.fields,field_description:sh_employee_custom_checklist.field_import_exit_custom_cl_wizard__file
+msgid "File"
+msgstr ""
+
+#. module: sh_employee_custom_checklist
+#: model:ir.model.fields,field_description:sh_employee_custom_checklist.field_employee_entry_custom_checklist__id
+#: model:ir.model.fields,field_description:sh_employee_custom_checklist.field_employee_entry_custom_checklist_line__id
+#: model:ir.model.fields,field_description:sh_employee_custom_checklist.field_employee_entry_custom_checklist_template__id
+#: model:ir.model.fields,field_description:sh_employee_custom_checklist.field_employee_exit_custom_checklist__id
+#: model:ir.model.fields,field_description:sh_employee_custom_checklist.field_employee_exit_custom_checklist_line__id
+#: model:ir.model.fields,field_description:sh_employee_custom_checklist.field_employee_exit_custom_checklist_template__id
+#: model:ir.model.fields,field_description:sh_employee_custom_checklist.field_import_entry_custom_cl_wizard__id
+#: model:ir.model.fields,field_description:sh_employee_custom_checklist.field_import_exit_custom_cl_wizard__id
+msgid "ID"
+msgstr ""
+
+#. module: sh_employee_custom_checklist
+#: model:ir.actions.act_window,name:sh_employee_custom_checklist.sh_import_entry_custom_cl_action
+#: model:ir.ui.menu,name:sh_employee_custom_checklist.menu_import_employee_entry_custom_checklist
+#: model_terms:ir.ui.view,arch_db:sh_employee_custom_checklist.sh_import_employee_custom_entry_wizard
+msgid "Import Employee Entry Checklist"
+msgstr ""
+
+#. module: sh_employee_custom_checklist
+#: model:ir.model,name:sh_employee_custom_checklist.model_import_entry_custom_cl_wizard
+msgid "Import Employee Entry Wizard"
+msgstr ""
+
+#. module: sh_employee_custom_checklist
+#: model:ir.actions.act_window,name:sh_employee_custom_checklist.sh_import_exit_custom_cl_action
+#: model:ir.ui.menu,name:sh_employee_custom_checklist.menu_import_employee_exit_custom_checklist
+#: model_terms:ir.ui.view,arch_db:sh_employee_custom_checklist.sh_import_employee_custom_exit_wizard
+msgid "Import Employee Exit Checklist"
+msgstr ""
+
+#. module: sh_employee_custom_checklist
+#: model:ir.model,name:sh_employee_custom_checklist.model_import_exit_custom_cl_wizard
+msgid "Import Employee Exit Wizard"
+msgstr ""
+
+#. module: sh_employee_custom_checklist
+#: model:ir.model.fields,field_description:sh_employee_custom_checklist.field_import_entry_custom_cl_wizard__import_type
+#: model:ir.model.fields,field_description:sh_employee_custom_checklist.field_import_exit_custom_cl_wizard__import_type
+msgid "Import File Type"
+msgstr ""
+
+#. module: sh_employee_custom_checklist
+#: model:ir.model.fields,field_description:sh_employee_custom_checklist.field_employee_entry_custom_checklist____last_update
+#: model:ir.model.fields,field_description:sh_employee_custom_checklist.field_employee_entry_custom_checklist_line____last_update
+#: model:ir.model.fields,field_description:sh_employee_custom_checklist.field_employee_entry_custom_checklist_template____last_update
+#: model:ir.model.fields,field_description:sh_employee_custom_checklist.field_employee_exit_custom_checklist____last_update
+#: model:ir.model.fields,field_description:sh_employee_custom_checklist.field_employee_exit_custom_checklist_line____last_update
+#: model:ir.model.fields,field_description:sh_employee_custom_checklist.field_employee_exit_custom_checklist_template____last_update
+#: model:ir.model.fields,field_description:sh_employee_custom_checklist.field_import_entry_custom_cl_wizard____last_update
+#: model:ir.model.fields,field_description:sh_employee_custom_checklist.field_import_exit_custom_cl_wizard____last_update
+msgid "Last Modified on"
+msgstr ""
+
+#. module: sh_employee_custom_checklist
+#: model:ir.model.fields,field_description:sh_employee_custom_checklist.field_employee_entry_custom_checklist__write_uid
+#: model:ir.model.fields,field_description:sh_employee_custom_checklist.field_employee_entry_custom_checklist_line__write_uid
+#: model:ir.model.fields,field_description:sh_employee_custom_checklist.field_employee_entry_custom_checklist_template__write_uid
+#: model:ir.model.fields,field_description:sh_employee_custom_checklist.field_employee_exit_custom_checklist__write_uid
+#: model:ir.model.fields,field_description:sh_employee_custom_checklist.field_employee_exit_custom_checklist_line__write_uid
+#: model:ir.model.fields,field_description:sh_employee_custom_checklist.field_employee_exit_custom_checklist_template__write_uid
+#: model:ir.model.fields,field_description:sh_employee_custom_checklist.field_import_entry_custom_cl_wizard__write_uid
+#: model:ir.model.fields,field_description:sh_employee_custom_checklist.field_import_exit_custom_cl_wizard__write_uid
+msgid "Last Updated by"
+msgstr ""
+
+#. module: sh_employee_custom_checklist
+#: model:ir.model.fields,field_description:sh_employee_custom_checklist.field_employee_entry_custom_checklist__write_date
+#: model:ir.model.fields,field_description:sh_employee_custom_checklist.field_employee_entry_custom_checklist_line__write_date
+#: model:ir.model.fields,field_description:sh_employee_custom_checklist.field_employee_entry_custom_checklist_template__write_date
+#: model:ir.model.fields,field_description:sh_employee_custom_checklist.field_employee_exit_custom_checklist__write_date
+#: model:ir.model.fields,field_description:sh_employee_custom_checklist.field_employee_exit_custom_checklist_line__write_date
+#: model:ir.model.fields,field_description:sh_employee_custom_checklist.field_employee_exit_custom_checklist_template__write_date
+#: model:ir.model.fields,field_description:sh_employee_custom_checklist.field_import_entry_custom_cl_wizard__write_date
+#: model:ir.model.fields,field_description:sh_employee_custom_checklist.field_import_exit_custom_cl_wizard__write_date
+msgid "Last Updated on"
+msgstr ""
+
+#. module: sh_employee_custom_checklist
+#: model:ir.model.fields,field_description:sh_employee_custom_checklist.field_employee_entry_custom_checklist__name
+#: model:ir.model.fields,field_description:sh_employee_custom_checklist.field_employee_entry_custom_checklist_line__name
+#: model:ir.model.fields,field_description:sh_employee_custom_checklist.field_employee_entry_custom_checklist_template__name
+#: model:ir.model.fields,field_description:sh_employee_custom_checklist.field_employee_exit_custom_checklist__name
+#: model:ir.model.fields,field_description:sh_employee_custom_checklist.field_employee_exit_custom_checklist_line__name
+#: model:ir.model.fields,field_description:sh_employee_custom_checklist.field_employee_exit_custom_checklist_template__name
+msgid "Name"
+msgstr ""
+
+#. module: sh_employee_custom_checklist
+#: model:ir.model.fields.selection,name:sh_employee_custom_checklist.selection__employee_entry_custom_checklist_line__state__new
+#: model:ir.model.fields.selection,name:sh_employee_custom_checklist.selection__employee_exit_custom_checklist_line__state__new
+msgid "New"
+msgstr ""
+
+#. module: sh_employee_custom_checklist
+#: model:ir.model.fields,field_description:sh_employee_custom_checklist.field_employee_entry_custom_checklist__sequence
+#: model:ir.model.fields,field_description:sh_employee_custom_checklist.field_employee_entry_custom_checklist_template__sequence
+#: model:ir.model.fields,field_description:sh_employee_custom_checklist.field_employee_exit_custom_checklist__sequence
+#: model:ir.model.fields,field_description:sh_employee_custom_checklist.field_employee_exit_custom_checklist_template__sequence
+msgid "Sequence"
+msgstr ""
+
+#. module: sh_employee_custom_checklist
+#: code:addons/sh_employee_custom_checklist/wizard/sh_import_entry_wizard.py:0
+#: code:addons/sh_employee_custom_checklist/wizard/sh_import_exit_wizard.py:0
+#, python-format
+msgid "Sorry, Your csv file does not match with our format "
+msgstr ""
+
+#. module: sh_employee_custom_checklist
+#: code:addons/sh_employee_custom_checklist/wizard/sh_import_entry_wizard.py:0
+#: code:addons/sh_employee_custom_checklist/wizard/sh_import_exit_wizard.py:0
+#, python-format
+msgid "Sorry, Your excel file does not match with our format "
+msgstr ""
+
+#. module: sh_employee_custom_checklist
+#: model:ir.model.fields,field_description:sh_employee_custom_checklist.field_employee_entry_custom_checklist_line__state
+#: model:ir.model.fields,field_description:sh_employee_custom_checklist.field_employee_exit_custom_checklist_line__state
+msgid "State"
+msgstr ""

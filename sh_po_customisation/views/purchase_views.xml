@@ -9,7 +9,7 @@
             <xpath expr="/form/sheet/notebook/page[@name='products']/field[@name='order_line']/tree/field[@name='product_qty']" position="after">
                 <field name="sh_sale_price" digits="[12,3]"/>
                 <field name="sh_available_quantity" readonly="1"/>
-                <field name="sh_barcode" readonly="1"/>
+                <field name="sh_barcode" readonly="0"/>
             </xpath>
         </field>
     </record>
