@@ -27,3 +27,5 @@ class HrDepartureWizard(models.TransientModel):
         if self.sh_archive_partner and employee_id.related_contact_ids or employee_id.address_home_id:
             partner = employee_id.related_contact_ids | employee_id.address_home_id
             [setattr (rec,'active', False) for rec in partner]
+        
+        return res
