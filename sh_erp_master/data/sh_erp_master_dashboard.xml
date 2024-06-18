@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<odoo>
+    <!-- ACTION: Dashboard -->
+    <!-- <record id="sh_action_erp_master_dashboard" model="ir.actions.client">
+        <field name="name">Dashboard</field>
+        <field name="tag">erp_master_dashboard.dashboard</field>
+    </record> -->
+    <record id="sh_action_erp_master_dashboard_custom" model="ir.actions.client">
+        <field name="name">Dashboard</field>
+        <field name="tag">sh_erp_master.dashboard</field>
+    </record>
+</odoo>

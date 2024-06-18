@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- SEARCH VIEW -->
+    <!-- <record id="sh_pos_payment_view_search" model="ir.ui.view">
+        <field name="name">sh_pos_payment.view.search</field>
+        <field name="model">sh.pos.payment</field>
+        <field name="arch" type="xml">
+            <search string="Pos payment">
+                <field name="" string="" />
+            </search>
+        </field>
+    </record> -->
+
+    <!-- TREE VIEW -->
+    <record id="sh_pos_payment_view_tree" model="ir.ui.view">
+        <field name="name">sh_pos_payment.view.tree</field>
+        <field name="model">sh.pos.payment</field>
+        <field name="arch" type="xml">
+            <tree string="Pos payment">
+                <field name="date_order" />
+                <field name="sh_shop_id" />
+                <field name="res_id" />
+                <field name="pos_order_id" />
+                <field name="payment_method" />
+                <field name="amount" />
+            </tree>
+        </field>
+    </record>
+
+    <!-- ACTION -->
+    <record id="sh_pos_payment_action" model="ir.actions.act_window">
+        <field name="name">Pos payment</field>
+        <field name="res_model">sh.pos.payment</field>
+        <field name="view_mode">tree</field>
+    </record>
+
+    <!-- MENU -->
+    <menuitem
+        id="sh_pos_payment_menu"
+        name="Pos payment"
+        action="sh_pos_payment_action"
+        sequence="1"/>
+
+</odoo>

@@ -1,0 +1,8 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+sh_erp_master.access_sh_client_shop,access_sh_client_shop,sh_erp_master.model_sh_client_shop,base.group_user,1,1,1,1
+sh_erp_master.access_sh_erp_log,access_sh_erp_log,sh_erp_master.model_sh_erp_log,base.group_user,1,1,1,1
+sh_erp_master.access_sh_erp_master_dashboard,access_sh_erp_master_dashboard,sh_erp_master.model_sh_erp_master_dashboard,base.group_user,1,1,1,1
+sh_erp_master.access_sh_pos_order,access_sh_pos_order,sh_erp_master.model_sh_pos_order,base.group_user,1,1,1,1
+sh_erp_master.access_sh_pos_order_line,access_sh_pos_order_line,sh_erp_master.model_sh_pos_order_line,base.group_user,1,1,1,1
+sh_erp_master.access_sh_pos_payment,access_sh_pos_payment,sh_erp_master.model_sh_pos_payment,base.group_user,1,1,1,1
+sh_erp_master.access_sh_pos_session,access_sh_pos_session,sh_erp_master.model_sh_pos_session,base.group_user,1,1,1,1

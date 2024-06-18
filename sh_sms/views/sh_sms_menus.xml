@@ -1,0 +1,14 @@
+<?xml version='1.0' encoding='utf-8'?>
+<odoo>
+    <menuitem
+        id="sh_twilio_account_menu_root"
+        name="Twilio"
+        sequence="10"/>
+    
+    <menuitem
+        id="menu_twilio_account"
+        name="Twilio Account"
+        action="action_sh_twilio_account"
+        parent=""
+        sequence="20"/>
+</odoo>

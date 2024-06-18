@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates xml:space="preserve">
+    <t t-name="erp_master_dashboard.dashboard" class="bg-secondary">
+
+        <!-- CSS -->
+        <link rel="stylesheet" type="text/css" href="/sh_erp_master/static/src/css/sales_analysis.css"/>
+
+        <t t-if="erp_data_dict">
+            
+            <!-- SELECT STORE -->
+            <div t-if="erp_data_dict.shops" class="form-group container">
+                <div class="row form-field o_website_form_required_custom">
+
+                    <!-- LABEL: Select Store -->
+                    <!-- <div class="col-4">
+                        <label class="col-form-label" for="store_id" style="color:black;">Select Store</label>
+                    </div> -->
+
+                    <!-- SELECTION: Select Store -->
+                    <div class="col col-4 py-5">
+                        <select id="store_id" class="form-select form-select-lg form-control dropdown-toggle">
+                            <!-- TODO: Only show the stores which can access by the log in user -->
+                            <t t-foreach="erp_data_dict.shops" t-as="shop">
+                                <!-- shop_id_1 -->
+                                <!-- t-att-id="'shop_id_' + shop.id" -->
+                                <t t-set="is_selected" t-value="False" />
+                                <t t-if="shop.id==erp_data_dict.selected_shop_id">
+                                    <t t-set="is_selected" t-value="'selected'" />
+                                </t>
+                                <option  t-att-value="shop.id" t-att-selected="is_selected" >
+                                    <t t-esc="shop.name" />
+                                </option>
+                            </t>
+                        </select>
+                    </div>
+                    <div class="col col-4 p-5">
+                        Select From Date
+                    </div>
+                    <div class="col col-4 p-5">
+                        Select End Date
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- STORE DATA -->
+            <div class="sh_erp_data_dashboard"></div>
+
+        </t>
+
+        <t t-else="">
+            <h2>in Else erp_data_dict: <t t-log="erp_data_dict"/></h2>
+        </t>
+
+    </t>
+
+    <!-- Dashboard DATA -->
+    <t t-name="sh_erp_master_dashboard.sales_data" class="bg-secondary">
+        <t t-if="erp_data_dict.dashboard_data_list">
+            <div class="container">
+                <div class="row">
+
+                    <t t-foreach="erp_data_dict.dashboard_data_list" t-as="dashboard_data_dict">
+                        <div class="col p-2">
+
+                            <table class="table border">
+
+                                <!-- TITLE -->
+                                <tr>
+                                    <th colspan="2"><t t-esc="dashboard_data_dict.title"/></th>
+                                </tr>
+
+                                <!-- PAYMENT METHODS -->
+                                <t t-if="dashboard_data_dict.payment_list">
+                                    <t t-foreach="dashboard_data_dict.payment_list" t-as="payment_dict">
+                                        <tr>
+                                            <td><t t-esc="payment_dict.name"/></td>
+                                            <td class="text-end">
+                                                <t t-esc="payment_dict.value"/>
+                                            </td>
+                                        </tr>
+                                    </t>
+                                </t>
+
+                                <!-- Total -->
+                                <tr>
+                                    <td>Total</td>
+                                    <td class="text-end"><t t-esc="dashboard_data_dict.total"/></td>
+                                </tr>
+
+                            </table>
+
+                            <!-- TITLE -->
+                            <!-- <span>
+                                <t t-esc="dashboard_data_dict.title"/>
+                                <hr />
+                            </span>
+                            <br/> -->
+
+                            <!-- PAYMENT METHODS -->
+                            <!-- <t t-if="dashboard_data_dict.payment_list">
+                                <t t-foreach="dashboard_data_dict.payment_list" t-as="payment_dict">
+                                    <span>
+                                        <t t-esc="payment_dict.name"/>: <t t-esc="payment_dict.value"/>
+                                    </span>
+                                    <br/>
+                                </t>
+                            </t> -->
+
+                            <!-- TOTAL -->
+                            <!-- <span>
+                                Total: <t t-esc="dashboard_data_dict.total_price_subtotal_incl"/>
+                            </span>
+                            <br/> -->
+
+                        </div>
+                    </t>
+
+                <!-- row end -->
+                </div>
+            </div>
+        </t>
+        <t t-else="">
+            <h1>Else: sh_erp_master_dashboard.sales_data</h1>
+        </t>
+    </t>
+
+</templates>
