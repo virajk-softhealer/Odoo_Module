@@ -15,12 +15,15 @@ class HrDepartureWizard(models.TransientModel):
 
         employee_id =self.env['hr.employee'].browse(context['active_id'])
 
+        # Employee Related User Archive 
         if self.sh_archive_user and employee_id.user_id:
             employee_id.user_id.active = False
         
+        # Employee Related Partner Archive 
         if self.sh_archive_partner and employee_id.user_id and employee_id.user_id.partner_id:
             employee_id.user_id.partner_id.active = False
         
+        # Employee Related Partner(Contact) Archive
         if self.sh_archive_partner and employee_id.related_contact_ids or employee_id.address_home_id:
             partner = employee_id.related_contact_ids | employee_id.address_home_id
             [setattr (rec,'active', False) for rec in partner]
