@@ -1,3 +1,6 @@
 id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
-sh_sms.access_sh_twilio_account,access_sh_twilio_account,sh_sms.model_sh_twilio_account,base.group_user,1,1,1,1
+sh_sms.access_sh_twilio_account,access_sh_twilio_account,sh_sms.model_sh_twilio_account,base.group_user,1,1,0,1
 sh_sms.access_sh_store_wise_sms_allocation,access_sh_store_wise_sms_allocation,sh_sms.model_sh_store_wise_sms_allocation,base.group_user,1,1,1,1
+sh_sms.access_sh_sms_text_message,access_sh_sms_text_message,sh_sms.model_sh_sms_text_message,base.group_user,1,1,1,1
+sh_sms.access_sh_sms_history,access_sh_sms_history,sh_sms.model_sh_sms_history,base.group_user,1,1,1,1
+sh_sms.access_sh_loyalty_point,access_sh_loyalty_point,sh_sms.model_sh_loyalty_point,base.group_user,1,1,1,1

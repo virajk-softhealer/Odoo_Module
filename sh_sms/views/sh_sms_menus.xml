@@ -1,14 +1,43 @@
 <?xml version='1.0' encoding='utf-8'?>
 <odoo>
+    <!-- MAIN MENU  -->
     <menuitem
         id="sh_twilio_account_menu_root"
-        name="Twilio"
+        name="Twilio Account"
         sequence="10"/>
     
+    <!-- PARENT MENU  -->
+    <menuitem
+        id="_menu"
+        name="SMS"
+        action="sh_sms_history_action"
+        parent="sh_twilio_account_menu_root"
+        sequence="10"/>
+
+    <menuitem
+        id="sh_configuration"
+        name="Configuration"
+        parent="sh_twilio_account_menu_root"
+        sequence="20"/>
+
+    <menuitem
+        id="menu_sms_settings"
+        name="Settings"
+        action="sh_sms_res_config_settings_action"
+        parent="sh_configuration"
+        sequence="10"/>
     <menuitem
         id="menu_twilio_account"
         name="Twilio Account"
         action="action_sh_twilio_account"
-        parent=""
+        parent="sh_configuration"
         sequence="20"/>
+
+    <menuitem
+        id="menu_sms_template_action"
+        name="SMS Templates"
+        action="sms.sms_template_action"
+        parent="sh_configuration"
+        sequence="30"/>
+    
 </odoo>

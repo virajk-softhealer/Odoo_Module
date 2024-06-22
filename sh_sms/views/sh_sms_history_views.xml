@@ -1,0 +1,30 @@
+<?xml version='1.0' encoding='utf-8'?>
+<odoo>
+
+    <!-- TREE VIEW  -->
+    <record id="sh_sms_history_form_view" model="ir.ui.view">
+        <field name="name">sh.sms.history.form.view</field>
+        <field name="model">sh.sms.history</field>
+        <field name="arch" type="xml">
+            <tree string="SMS History" create="0" delete="0">
+                <field name="sh_partner_id"/>
+                <field name="sh_store_id"/>
+                <field name="sh_message"/>
+                <field name="sh_state" widget="badge" decoration-info="sh_state == 'draft'" decoration-success="sh_state == 'sent'"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- ACTION  -->
+    <record id="sh_sms_history_action" model="ir.actions.act_window">
+        <field name="name">SMS History</field>
+        <field name="res_model">sh.sms.history</field>
+        <field name="view_mode">tree</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="binding_view_types">list</field>
+
+    </record>
+
+    
+
+</odoo>

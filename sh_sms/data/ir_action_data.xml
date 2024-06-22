@@ -1,0 +1,16 @@
+<?xml version='1.0' encoding='utf-8'?>
+<odoo>
+    
+    <!-- IR.ACTION.SERVER  -->
+    <record id="action_send_sms_text_message" model="ir.actions.server">
+        <field name="name">SH Send SMS Text Message</field>
+        <field name="model_id" ref="base.model_res_partner" />
+        <field name="binding_model_id" ref="base.model_res_partner"/>
+        <field name="state">code</field>
+         <field name="code">
+            if records:
+                action = records.action_sms_text_message()
+        </field>
+    </record>
+    
+</odoo>

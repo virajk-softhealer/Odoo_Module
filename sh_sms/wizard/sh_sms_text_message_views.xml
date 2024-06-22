@@ -1,0 +1,38 @@
+<?xml version='1.0' encoding='utf-8'?>
+<odoo>
+
+    <!-- FORM VIEW  -->
+    <record id="sh_sms_text_message_form_view" model="ir.ui.view">
+        <field name="name">sh.sms.text.message.form.view</field>
+        <field name="model">sh.sms.text.message</field>
+        <field name="arch" type="xml">
+            <form string="Send SMS Text Message">
+                <sheet>
+                    <group>
+                        <!-- <group> -->
+                        <div class="oe_title">
+                            <field name="sh_send_message_type" widget="radio" options="{'horizontal':true}"/>
+                        </div>
+                        <br/>
+                        <field name="sh_sms_template_id" options="{'no_create':True}" attrs="{'invisible':[('sh_send_message_type','!=','template')]}"/>
+                        <field name="sh_custom_message" widget="sms_widget" attrs="{'invisible':[('sh_send_message_type','!=','custome_message')]}"/>
+                        <!-- </group>                         -->
+                    </group>
+                    <footer>
+                        <button string="Send Now" class="btn btn-primary" type="object" name="action_send_now" />
+                        <button string="Close" class="btn-secondary" special="cancel" />
+                    </footer>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- ACTION  -->
+    <record id="sh_sms_text_message_action" model="ir.actions.act_window">
+        <field name="name">sh.sms.text.message.action</field>
+        <field name="res_model">sh.sms.text.message</field>
+        <field name="view_mode">form</field>
+        <field name="type">ir.actions.act_window</field>
+    </record>
+
+</odoo>

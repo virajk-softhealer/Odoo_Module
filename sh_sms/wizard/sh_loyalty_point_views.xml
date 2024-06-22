@@ -1,0 +1,20 @@
+<?xml version='1.0' encoding='utf-8'?>
+<odoo>
+    <!-- Form View  -->
+    <record id="sh_loyalty_point_form_view" model="ir.ui.view">
+        <field name="name">sh.loyalty.point.form.view</field>
+        <field name="model">sh.loyalty.point</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="sh_details"/>
+                    </group>
+                    <footer>
+                        <button string="Close" class="btn-primary" special="cancel" />
+                    </footer>
+                </sheet>
+            </form>
+        </field>
+    </record>
+</odoo>

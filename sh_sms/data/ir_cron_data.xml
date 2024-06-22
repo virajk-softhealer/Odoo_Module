@@ -1,0 +1,30 @@
+<?xml version='1.0' encoding='utf-8'?>
+<odoo>
+    <!-- Wish Birthday -->
+    <record id="ir_cron_data_wish_birth" model="ir.cron">
+        <field name="name">Wishing Birthday SMS</field>
+        <field name="model_id" ref="model_res_partner" />
+        <field name="user_id" ref="base.user_root" />
+        <field name="type">ir.actions.server</field>
+        <field name="state">code</field>
+        <field name="code">model.wish_birthday()</field>
+        <field name="interval_number">1</field>
+        <field name="interval_type">days</field>
+        <field name="numbercall">-1</field>
+    </record>
+
+    <!-- Store Visit Partner SMS -->
+    <record id="ir_cron_data_store_visit_customer_sms" model="ir.cron">
+        <field name="name">Store Visit Customer SMS</field>
+        <field name="model_id" ref="model_res_partner" />
+        <field name="user_id" ref="base.user_root" />
+        <field name="type">ir.actions.server</field>
+        <field name="state">code</field>
+        <field name="code">model.store_visit_customer_sms()</field>
+        <field name="interval_number">1</field>
+        <field name="interval_type">days</field>
+        <field name="numbercall">-1</field>
+    </record>
+
+
+</odoo>

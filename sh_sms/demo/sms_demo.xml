@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<odoo noupdate="1">
+    <!-- DEMO DATA  -->
+    <record id="demo_twilio_account" model="sh.twilio.account">
+        <field name="name">Twilio Credentials</field>
+    </record>
+</odoo>
