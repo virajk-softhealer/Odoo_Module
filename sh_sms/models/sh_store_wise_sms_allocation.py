@@ -8,7 +8,7 @@ from markupsafe import Markup
 class ShStoreWiseSMSAllocation(models.Model):
     _name = 'sh.store.wise.sms.allocation'
     _description = "Store Wise SMS Allocation"
-
+                
     
     sh_twilio_account_id = fields.Many2one(
         string='Account Reference',

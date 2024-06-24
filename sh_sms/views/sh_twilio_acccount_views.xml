@@ -79,7 +79,8 @@
         <field name="res_model">sh.twilio.account</field>
         <field name="view_mode">form</field>
         <field name="view_id" ref="sh_twilio_account_view_form"/>
-        <field name="res_id" ref="demo_twilio_account"/>
+        <field name="res_id" ref="sh_demo_twilio_account"/>
         <field name="type">ir.actions.act_window</field>
+        <field name="target">current</field>
     </record>
 </odoo>

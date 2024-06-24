@@ -37,7 +37,7 @@ class ResPartner(models.Model):
 
         previous_date = date.today() - timedelta(day)
         print('\n\n\n\n <-----previous_date------>',previous_date)
-        new_date_time_object = datetime.combine(previous_date, time(00,00,00))
+        # new_date_time_object = datetime.combine(previous_date, time(00,00,00))
         # print('\n\n\n <--------previous_date----->',new_date_time_object)
 
         query ="""
