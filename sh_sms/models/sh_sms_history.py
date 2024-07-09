@@ -9,15 +9,13 @@ class ShSMSHistory(models.Model):
     _description = 'SMS History'
 
     sh_partner_id = fields.Many2one('res.partner',string='Customers')
-    sh_store_id = fields.Many2one('sh.pos.session',string='Store(Sent From)')
+    sh_store_id = fields.Many2one('sh.client.shop',string='Store(Sent From)')
     sh_message = fields.Text(String='Message')
     sh_state = fields.Selection([
         ('draft', 'Draft'),
+        ('fail', 'Failed'),
         ('sent', 'Sent')],
-        string="Status",
-        required=True,
-        readonly=True,
-        copy=False,
-        tracking=True,
+        string="State",
+        help='State of SMS',
         default="draft")
 

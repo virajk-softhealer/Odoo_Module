@@ -9,7 +9,7 @@
     "support": "support@softhealer.com",
     "summary": "",
     "description": """""",
-    "version": "16.0.2",
+    "version": "16.0.3",
     "depends": ["purchase","stock","point_of_sale"
     ],
     "application": True,

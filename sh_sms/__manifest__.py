@@ -10,8 +10,7 @@
     "summary": "",
     "description": """""",
     "version": "16.0.1",
-    "depends": ["contacts","sh_erp_master","sale_management","base",
-    ],
+    "depends": ["contacts","sh_erp_master","sale_management"],
     "application": True,
     "data": [
         'data/ir_cron_data.xml',

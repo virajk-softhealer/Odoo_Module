@@ -15,22 +15,34 @@ class ShStoreWiseSMSAllocation(models.Model):
         comodel_name='sh.twilio.account',
         ondelete='cascade',
     )
-    sh_store_id = fields.Many2one('sh.pos.session',string='Store')
-    sh_allocates_sms = fields.Integer(string='Allocated SMS')
-    
+    sh_store_id = fields.Many2one('sh.client.shop',string='Store')
+    sh_allocated_sms = fields.Integer(string='Allocated SMS')
+    sh_sent_sms = fields.Integer(string='Sent SMS',compute='_compute_sent_and_remaining_sms')
+    sh_remainig_sms = fields.Integer(string='Remaining SMS',compute='_compute_sent_and_remaining_sms')
+
+    # COMPUTE METHOD 
+    @api.depends('sh_sent_sms','sh_remainig_sms')
+    def _compute_sent_and_remaining_sms(self):
+        for rec in self:
+
+            if rec.sh_store_id:
+                total_sent_sms = self.env['sh.sms.history'].search_count([('sh_store_id','=',rec.sh_store_id.id),('sh_state','=','sent')])
+                rec.sh_sent_sms = total_sent_sms
+                rec.sh_remainig_sms = rec.sh_allocated_sms - rec.sh_sent_sms
+            
     # WRITE METHOD 
     def write(self, vals):
         
         # OLD VALUE GETED
         old_store_id = self.sh_store_id.name
-        old_allocated_sms = self.sh_allocates_sms
+        old_allocated_sms = self.sh_allocated_sms
 
         # SUPER METHOD CALL 
         res = super().write(vals)
 
         # UPDATED VALUE GETED
         new_store_id = ', '.join(self.sh_store_id.name).replace(" ","").replace(",","") if vals.get('sh_store_id') else 'None'
-        new_allocated_sms = ', '.join(str(self.sh_allocates_sms)).replace(" ","").replace(",","") if vals.get('sh_allocates_sms') else 'None'
+        new_allocated_sms = ', '.join(str(self.sh_allocated_sms)).replace(" ","").replace(",","") if vals.get('sh_allocated_sms') else 'None'
 
         # STORE FIELD  CHECK 
         if vals.get('sh_store_id'):
@@ -48,7 +60,7 @@ class ShStoreWiseSMSAllocation(models.Model):
             </ul>''' % (old_store_id,new_store_id))
 
         # ALLOCATION_SMS FIELD CHECK 
-        if vals.get('sh_allocates_sms'):
+        if vals.get('sh_allocated_sms'):
             sms_body = Markup('''
             <ul class="o_Message_trackingValues mb-0 ps-4">
                 <li>
@@ -74,7 +86,7 @@ class ShStoreWiseSMSAllocation(models.Model):
         if vals.get('sh_store_id'):
             message['body'] = store_body
 
-        if vals.get('sh_allocates_sms'):
+        if vals.get('sh_allocated_sms'):
             if vals.get('sh_store_id'):
 
                 # CONCATING BODY FIELD 
@@ -84,6 +96,5 @@ class ShStoreWiseSMSAllocation(models.Model):
 
         # MAIL.MESSAGE MODEL IN CREATING RECORD 
         message = self.env['mail.message'].sudo().create(message)
-        # print('\n\n\n\n <------------message>',message)
 
         return res

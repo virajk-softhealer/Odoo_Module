@@ -10,6 +10,9 @@
                 <field name="sh_dob"/>
                 <field name="sh_customer_bool" invisible="1"/>
             </xpath>
+            <xpath expr="//field[@name='vat']" position="after">
+                <field name="sh_top_store"/>
+            </xpath>
         </field>
     </record>
 
@@ -20,7 +23,8 @@
         <field name="inherit_id" ref="base.view_partner_tree" />
         <field name="arch" type="xml">
             <xpath expr="//field[@name='company_id']" position="after">
-                <field name="sh_send_sms_count" force_save="1"/>
+                <field name="sh_send_sms_count"/>
+                <!-- <field name="sh_is_count" invisible="1"/> -->
                 <button name="sh_sms_history" type="object" string="SMS Logs" class="oe_highlight btn-info"/>
                 <button name="sh_send_sms" type="object" string="Send SMS" class="oe_highlight btn-success"/>
                 <button name="sh_details_loyalty_points" type="object" string="Loyalty Points Details" class="oe_highlight btn-primary"/>

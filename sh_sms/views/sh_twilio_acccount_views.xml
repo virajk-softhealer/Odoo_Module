@@ -28,7 +28,10 @@
                             <field name="sh_account_sid" password="True" required="1"/>
                             <field name="sh_auth_token" password="True" required="1"/>
                             <field name="sh_total_allocated_sms"/>
-                            <!-- <field name="sh_is_o2m_field"/> -->
+                        </group>
+                        <group>
+                            <field name="sh_from_number" required="1"/>
+                            <field name="sh_to_number" required="1" invisible="0"/>
                         </group>
                     </group>
                     <notebook>
@@ -42,7 +45,9 @@
                                             editable="bottom">
 
                                             <field name="sh_store_id"/>
-                                            <field name="sh_allocates_sms" sum="Total"/>
+                                            <field name="sh_allocated_sms" sum="Total"/>
+                                            <field name="sh_sent_sms" sum="Total" />
+                                            <field name="sh_remainig_sms" sum="Total" />
                                         </tree>
                                 </field>
                         </page>

@@ -1,9 +1,12 @@
 # -*- coding: utf-8 -*-
 # Part of Softhealer Technologies.
 
+import logging
 from odoo import api, models, fields, _
 from twilio.rest import Client
 from twilio.base.exceptions import TwilioException
+# from odoo.exceptions import UserError
+_logger = logging.getLogger(__name__)
 
 
 class ShTwilioAccount(models.Model):
@@ -18,16 +21,16 @@ class ShTwilioAccount(models.Model):
     state = fields.Selection([
         ('new', 'New'),
         ('confirm', 'Connected'),
-    ], required=True, default='new', string='State', help='State of Twilio account')
+    ],default='new', string='State', help='State of Twilio account')
     
     sh_body = fields.Text(string='Body', required=False,
                        help='Body for test message',
                        default='This Message is for testing Twilio Connection')
     
-    sh_from_number = fields.Char(string='Your Twilio Phone Number', required=False,
+    sh_from_number = fields.Char(string='Your Twilio Phone Number', 
                               help='Twilio account number')
 
-    sh_to_number = fields.Char(string='To', required=False,
+    sh_to_number = fields.Char(string='To',
                             help='Recipient number with country code for '
                                  'testing the connection(It should be '
                                  'added to Verified Caller IDs in Twilio).')
@@ -36,14 +39,12 @@ class ShTwilioAccount(models.Model):
 
     def sh_account_test_connection(self):
         try:
-            print('\n\n\n\n <---------------message1----------------->')
             messages = Client(self.sh_account_sid,self.sh_auth_token).messages.create(
                 body =self.sh_body,
                 from_ =self.sh_from_number,
                 to = self.sh_to_number
             )
-            print('\n\n\n\n <---------------message2----------------->',messages)
-
+            
             if messages.sid:
                 self.write({"state":"confirm"}) 
                 message_data = _("Connection Successful!")
@@ -59,11 +60,12 @@ class ShTwilioAccount(models.Model):
                     'message': message_data,
                     'type': message_type,
                     'sticky': True,
-                }
+                }    
             }
-        except TwilioException:
-            print("Demo")
-            
+
+        except TwilioException as e:
+            # _logger.exception(e)
+
             return {
                 'type': 'ir.actions.client',
                 'tag': 'display_notification',
@@ -73,4 +75,3 @@ class ShTwilioAccount(models.Model):
                     'sticky': True,
                 }
             }
-

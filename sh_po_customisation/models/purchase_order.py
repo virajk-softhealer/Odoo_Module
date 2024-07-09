@@ -49,8 +49,7 @@ class PurchaseOrderLine(models.Model):
     sh_sale_price = fields.Float(string='Sale Price')
     sh_available_quantity = fields.Float(string='Available Quantity',
     related='product_id.qty_available' )
-    sh_barcode = fields.Char(string='Barcode',
-    related='product_id.barcode')
+    sh_barcode = fields.Char(string='Barcode')
 
     price_unit = fields.Float(
         string='Unit Price', required=True, digits=(12,3),
@@ -62,4 +61,23 @@ class PurchaseOrderLine(models.Model):
         self.sh_sale_price = self.product_id.lst_price
 
 
-   
+    # CREATE METHOD 
+    @api.model
+    def create(self, vals):
+        res = super().create(vals)
+
+        if res and res.product_id:
+            res.product_id.standard_price = res.price_unit
+            res.product_id.barcode = res.sh_barcode
+
+        return res
+    
+    # WRITE METHOD 
+    def write(self, vals):
+        res = super().write(vals)
+
+        if self and self.product_id:
+            self.product_id.standard_price = self.price_unit
+            self.product_id.barcode = self.sh_barcode
+
+        return res

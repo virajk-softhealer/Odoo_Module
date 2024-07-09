@@ -14,8 +14,11 @@
                             <field name="sh_send_message_type" widget="radio" options="{'horizontal':true}"/>
                         </div>
                         <br/>
-                        <field name="sh_sms_template_id" options="{'no_create':True}" attrs="{'invisible':[('sh_send_message_type','!=','template')]}"/>
-                        <field name="sh_custom_message" widget="sms_widget" attrs="{'invisible':[('sh_send_message_type','!=','custome_message')]}"/>
+                        <field name="sh_sms_template_id" options="{'no_create':True}" 
+                            attrs="{'required':[('sh_send_message_type','=','template')],'invisible':[('sh_send_message_type','!=','template')]}"/>
+
+                        <field name="sh_custom_message" widget="sms_widget" 
+                            attrs="{'required':[('sh_send_message_type','=','custome_message')],'invisible':[('sh_send_message_type','!=','custome_message')]}"/>
                         <!-- </group>                         -->
                     </group>
                     <footer>
