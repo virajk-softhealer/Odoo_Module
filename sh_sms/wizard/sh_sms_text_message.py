@@ -26,11 +26,9 @@ class ShSMSTextMessage(models.TransientModel):
             for rec in customer:
                 try :
                     client = Client(twilio_account.sh_account_sid,twilio_account.sh_auth_token)
-                    # print('\n\n\n\n CLIENT',client)
                     
                     body = self.sh_sms_template_id._render_template(self.sh_sms_template_id.body,'res.partner',customer.ids)
                     if rec.mobile:
-                        # print('\n\n\n MOBILE',rec.mobile)
                         # TEMPLATE 
                         if self.sh_send_message_type =='template' and self.sh_sms_template_id and self.sh_sms_template_id.body:
                             
@@ -39,19 +37,15 @@ class ShSMSTextMessage(models.TransientModel):
                                     from_=twilio_account.sh_from_number,
                                     to=rec.mobile
                                 )
-                            # print('\n\n\n MESSAGE',message)
-                            # print('\n\n\n MESSAGE SID',message.sid)
-
-                            sms_history = self.env['sh.sms.history'].create({
+                          
+                            self.env['sh.sms.history'].create({
                                 'sh_partner_id':rec.id,
                                 'sh_store_id':rec.sh_top_store.id,
                                 'sh_message':body.get(rec.id),
                                 'sh_state':'sent'
                             })
 
-                            if sms_history:
-                                rec.sh_send_sms_count+=1
-                                # sms_history.update({'sh_state':'sent'})
+                            rec.sh_send_sms_count+=1
 
                         # CUSTOME MESSAGE 
                         if self.sh_send_message_type =='custome_message':
@@ -61,24 +55,21 @@ class ShSMSTextMessage(models.TransientModel):
                                     from_=twilio_account.sh_from_number,
                                     to=rec.mobile
                                 )
-                            sms_history = self.env['sh.sms.history'].create({
+                            self.env['sh.sms.history'].create({
                                 'sh_partner_id':rec.id,
                                 'sh_store_id':rec.sh_top_store.id,
                                 'sh_message':self.sh_custom_message,
                                 'sh_state':'sent'
                                 })
 
-                            if sms_history:
-                                rec.sh_send_sms_count+= 1
+                            rec.sh_send_sms_count+= 1
 
                     if not rec.mobile:
-                        # print("\n\n\n\n HELLO1")
-                        message_data = _("Mobile Number Empty!")
                         return{
                             'type':'ir.actions.client',
                             'tag': 'display_notification',
                             'params':{
-                                'message':message_data,
+                                'message':'The mobile number is empty.',
                                 'type':'warning',
                                 'sticky':False,
                                 'next':{
@@ -87,14 +78,12 @@ class ShSMSTextMessage(models.TransientModel):
                             }
                         }
 
-                except TwilioException:
-                    # print("\n\n\n\n HELLO2")
-                    message_data = _("Twilio Credentials Wrong!")
+                except TwilioException as e:
                     return{
                         'type':'ir.actions.client',
                         'tag': 'display_notification',
                         'params':{
-                            'message':message_data,
+                            'message':f'The twilio account details invalid {e}.',
                             'type':'warning',
                             'sticky':False,
                             'next':{
@@ -104,13 +93,11 @@ class ShSMSTextMessage(models.TransientModel):
                     }
 
         else:
-            # print("\n\n\n\n HELLO3")
-            message_data = _("Not Twilio Account!")
             return{
                 'type':'ir.actions.client',
                 'tag': 'display_notification',
                 'params':{
-                    'message':message_data,
+                    'message':"The twilio account is not set up or confirmed.",
                     'type':'warning',
                     'sticky':False,
                     'next':{

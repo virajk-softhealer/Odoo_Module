@@ -34,7 +34,6 @@ class ResPartner(models.Model):
 
         if not twilio_account:
             #TODO: FIALED SEND SMS DEUT TO MOBILE NUMBER IS NOT SET IN CUSTOMER
-            # for rec in customer:
                 self.env['sh.sms.history'].create({
                     'sh_message':'Started birthday wishing reminder cron: The twilio account details invalid.',
                     'sh_state':'fail'
@@ -47,8 +46,11 @@ class ResPartner(models.Model):
                    
             for rec in customer:
                 try :
+                    
+                    # TODO: nitin crate Faild log for this
+                    # 5/0
+
                     if rec.mobile:
-                        
                         # RENDER TEMPLATE 
                         body = birthday_sms_template._render_template(birthday_sms_template.body,'res.partner',rec.ids)
 
@@ -57,30 +59,49 @@ class ResPartner(models.Model):
                             from_=twilio_account.sh_from_number,
                             to=rec.mobile
                         )
+                        
+                        # TODO: Nitin - Last Point - R&D for the  message sent successfully or not in message variable
 
                         self.env['sh.sms.history'].create({
                             'sh_partner_id':rec.id,
                             'sh_store_id':rec.sh_top_store.id,
-                            'sh_message':body.get(rec.id),
+                            'sh_message':f'Birthday wish send to {rec.name} succesfully.',
                             'sh_state':'sent'
                         })
                         rec.sh_send_sms_count+=1
 
-                    if not rec.mobile:
+                    else:
                         #TODO: FIALED SEND SMS DEUT TO MOBILE NUMBER IS NOT SET IN CUSTOMER
                         self.env['sh.sms.history'].create({
                             'sh_partner_id':rec.id,
                             'sh_store_id':rec.sh_top_store.id,
-                            'sh_message':'Started birthday wishing reminder cron: The mobile number is empty.',
+                            'sh_message':f'Started birthday wishing reminder cron: The mobile number is empty in {rec.name}.',
                             'sh_state':'fail'
                         })
 
                 except TwilioException as e:
                     #TODO: FIALED SEND SMS DEUT TO MOBILE NUMBER IS NOT SET IN CUSTOMER
-                    self.env['sh.sms.history'].create({
+
+                    # TODO: Nitin - if 'unverified numbers' in e: Pleaase verify the number rec.mobile of partner {partner name}
+                    if 'unverified numbers' in str(e):
+                        self.env['sh.sms.history'].create({
+                                'sh_partner_id':rec.id,
+                                'sh_store_id':rec.sh_top_store.id,
+                                'sh_message':f"Started birthday wishing reminder cron: Please verify the mobile number {rec.mobile} of partner {rec.name}. If it is incorrect or needs verification, please use Twilio OTP.",
+                                'sh_state':'fail'
+                            })
+                    else:
+                        self.env['sh.sms.history'].create({
                             'sh_partner_id':rec.id,
                             'sh_store_id':rec.sh_top_store.id,
                             'sh_message':f'Started birthday wishing reminder cron: Twilio account details invalid ..! {e}',
+                            'sh_state':'fail'
+                        })
+                except Exception as e:
+                    self.env['sh.sms.history'].create({
+                            'sh_partner_id':rec.id,
+                            'sh_store_id':rec.sh_top_store.id,
+                            'sh_message':f'Started birthday wishing reminder cron: {e}',
                             'sh_state':'fail'
                         })
 
@@ -90,16 +111,12 @@ class ResPartner(models.Model):
     @api.model
     def store_visit_customer_sms(self):
         day = self.env.company.sh_sms_day
-        # print('\n\n\n\n DAY',day)
 
         store_person_sms_template = self.env.company.sh_store_visit_sms_temp_id
-        # print('\n\n\n\n STORE_PERSON_SMS',store_person_sms_template)
 
         twilio_account = self.env['sh.twilio.account'].search([('state','=','confirm')],limit=1)
 
-        # if day >= 1:
         previous_date = date.today() - timedelta(day)
-        # print('\n\n\n\n <-----previous_date------>',previous_date)
 
         query ="""
             SELECT partner_id
@@ -113,11 +130,11 @@ class ResPartner(models.Model):
         self._cr.execute(query, parameter)    
 
         result = self._cr.dictfetchall()
+        # print('\n\n\n>>> result',result)
 
         partner =[]        
         if result:
             partner.extend(rec.get('partner_id') for rec in result)
-            # print('\n\n\n\n PARTNER',partner)
 
             if partner and not twilio_account:
                 # customer_send_msg = self.env["res.partner"].sudo().search([('id','not in',partner),('sh_customer_bool','=',False)])
@@ -160,23 +177,32 @@ class ResPartner(models.Model):
                             rec.sh_send_sms_count+= 1
                             rec.sh_customer_bool= True
                         
-                        if not rec.mobile:
+                        else:
                             self.env['sh.sms.history'].create({
                                 'sh_partner_id':rec.id,
                                 'sh_store_id':rec.sh_top_store.id,
-                                'sh_message':'Started store visit reminder cron: The mobile number is empty.',
+                                'sh_message':f'Started store visit reminder cron: The mobile number is empty in {rec.name}.',
+                                'sh_state':'fail'
+                            })
+                    except TwilioException as e:
+
+                        if 'unverified numbers' in str(e):
+                            self.env['sh.sms.history'].create({
+                                'sh_partner_id':rec.id,
+                                'sh_store_id':rec.sh_top_store.id,
+                                'sh_message':f"Started store visit reminder cron: Please verify the mobile number {rec.mobile} of partner {rec.name}. If it is incorrect or needs verification, please use Twilio OTP.",
+                                'sh_state':'fail'
+                            })
+                        
+                        else:
+                            self.env['sh.sms.history'].create({
+                                'sh_partner_id':rec.id,
+                                'sh_store_id':rec.sh_top_store.id,
+                                'sh_message':f'Started store visit reminder cron: Twilio account details invalid ..! {e}',
                                 'sh_state':'fail'
                             })
 
-                    except TwilioException as e:
-                        #TODO: FIALED SEND SMS DEUT TO MOBILE NUMBER IS NOT SET IN CUSTOMER
-                        self.env['sh.sms.history'].create({
-                            'sh_partner_id':rec.id,
-                            'sh_store_id':rec.sh_top_store.id,
-                            'sh_message':f'Started store visit reminder cron: Twilio account details invalid ..! {e}',
-                            'sh_state':'fail'
-                        })
-    
+
     # IR.ACTION.SERVER METHOD
     def action_sms_text_message(self):
         return {
@@ -196,14 +222,11 @@ class ResPartner(models.Model):
             'type': 'ir.actions.act_window',
             'view_mode': 'list',
             'target':'inline',
-            # 'context':{'default_partner_id':self.id},
-            # 'domain':"[('sh_partner_id','=',context.get('default_partner_id'))]",
             'domain':[('sh_partner_id','=',self.id)]
         }  
 
     # SEND SMS METHOD 
     def sh_send_sms(self):
-        # print('\n\n\n self',self)
         return {
             'name': _(' Send SMS Text Message'),
             'res_model': 'sh.sms.text.message',
@@ -214,7 +237,6 @@ class ResPartner(models.Model):
 
     # Details Loyalty Point METHOD
     def sh_details_loyalty_points(self):
-        # print('\n\n\n self',self)
         return {
             'name': _(' Details Loyalty Point'),
             'res_model': 'sh.loyalty.point',

@@ -64,13 +64,11 @@ class ShTwilioAccount(models.Model):
             }
 
         except TwilioException as e:
-            # _logger.exception(e)
-
             return {
                 'type': 'ir.actions.client',
                 'tag': 'display_notification',
                 'params': {
-                    'message': _("Connection Not Successful!"),
+                    'message': f"Connection Not Successful! {e}.",
                     'type': 'warning',
                     'sticky': True,
                 }
