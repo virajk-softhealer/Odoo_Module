@@ -1,0 +1,29 @@
+<?xml version='1.0' encoding='utf-8'?>
+<odoo>
+    <!-- TREE VIEW  -->
+    <record id="account_sale_by_customer_summary" model="ir.ui.view">
+        <field name="name">account.sale.by.customer.summary</field>
+        <field name="model">account.move.line</field>
+        <field name="arch" type="xml">
+            <tree string="Account Sale By Customer Summary" create="false" delete="false" edit="false">
+                <field name="move_name"/>
+                <field name="date"/>
+                <field name="ref"/>
+                <field name="name"/>
+                <field name="quantity"/>
+                <field name="price_unit"/>
+                <field name="price_subtotal"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- ACTION  -->
+    <record id="action_account_sale_by_customer_summary" model="ir.actions.act_window">
+        <field name="name">Sales By Customer Details</field>
+        <field name="res_model">account.move.line</field>
+        <field name="view_mode">tree</field>
+        <field name="view_id" ref="account_sale_by_customer_summary"/>
+        <field name="type">ir.actions.act_window</field>
+    </record>
+
+</odoo>

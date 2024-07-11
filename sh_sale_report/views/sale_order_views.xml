@@ -1,0 +1,48 @@
+<?xml version='1.0' encoding='utf-8'?>
+<odoo>
+    <!-- TREE VIEW SALE_BY_CUSTOMER -->
+    <record id="sale_by_customer_summary" model="ir.ui.view">
+        <field name="name">sale.by.customer.summary</field>
+        <field name="model">sale.order</field>
+        <field name="arch" type="xml">
+            <tree string="Sale By Customer Summary" create="false" delete="false" edit="false">
+                <field name="partner_id"/>
+                <field name="amount_untaxed"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- ACTION  SALE_BY_CUSTOMER -->
+    <record id="action_sale_by_customer_summary" model="ir.actions.act_window">
+        <field name="name">Sale By Customer Summary</field>
+        <field name="res_model">sale.order</field>
+        <field name="view_mode">tree</field>
+        <field name="view_id" ref="sale_by_customer_summary"/>
+        <field name="context">{"search_default_customer":1}</field>
+        <field name="type">ir.actions.act_window</field>
+    </record>
+
+    <!-- TREE VIEW SALE_BY_REP  -->
+    <record id="sale_by_rep_summary" model="ir.ui.view">
+        <field name="name">sale.by.rep.summary</field>
+        <field name="model">sale.order</field>
+        <field name="arch" type="xml">
+            <tree string="Sale By Rep Summary" create="false" delete="false" edit="false">
+                <field name="user_id"/>
+                <field name="amount_untaxed"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- ACTION  SALE_BY_REP -->
+    <record id="action_sale_by_rep_summary" model="ir.actions.act_window">
+        <field name="name">Sale By Rep Summary</field>
+        <field name="res_model">sale.order</field>
+        <field name="view_mode">tree</field>
+        <field name="view_id" ref="sale_by_rep_summary"/>
+        <field name="context">{"search_default_salesperson":1}</field>
+        <field name="type">ir.actions.act_window</field>
+    </record>
+
+
+</odoo>

@@ -1,0 +1,33 @@
+<?xml version='1.0' encoding='utf-8'?>
+<odoo>
+     <data>
+          <menuitem id="sale_reporting" name="Sale Reporting" parent="sale.sale_menu_root" sequence="40"/>
+
+          <menuitem id="sale.menu_sale_report"
+               name="Reporting"
+               action="sale.action_order_report_all"
+               groups="sales_team.group_sale_manager"
+               parent="sale_reporting"
+               sequence="40"/>
+
+          <menuitem id="menu_sale_by_customer_summary_report"
+               name="Sale By Customer Summary"
+               parent="sale_reporting"
+               action="action_sale_by_customer_summary"
+               sequence="50"/>
+
+          <menuitem id="menu_account_sale_by_customer_summary_report"
+               name="Sales By Customer Details"
+               parent="sale_reporting"
+               action="action_account_sale_by_customer_summary"
+               sequence="60"/>
+
+          <menuitem id="menu_sale_by_rep_summary_report"
+               name="Sale By Rep Summary"
+               parent="sale_reporting"
+               action="action_sale_by_rep_summary"
+               sequence="70"/>
+
+          
+     </data>
+</odoo>
