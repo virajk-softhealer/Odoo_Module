@@ -15,7 +15,7 @@
                                 context="{ 'default_is_agri_task': True}" />
                         </group>
                         <group>
-                            <field name="sh_agri_crops_id" />
+                            <field name="sh_agri_crops_id" options="{'no_open': True, 'no_create': True}"/>
                             <!-- <field name="labours_total" invisible="1"/> -->
 
                         </group>
