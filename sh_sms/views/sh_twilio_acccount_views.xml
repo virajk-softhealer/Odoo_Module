@@ -13,11 +13,6 @@
                             type="object"
                             attrs="{'invisible': [('state','!=','new')]}"/>
 
-                    <button 
-                        name="action_edit_twillo_sms_allocation" 
-                        type="object" 
-                        class="btn-primary"
-                        string="Password Generate"/>
                     <field name="state" widget="statusbar"/>
                 </header>
                 <sheet>

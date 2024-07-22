@@ -83,16 +83,4 @@ class ShTwilioAccount(models.Model):
 
         }   
 
-    def action_edit_twillo_sms_allocation(self):
-        pw = 'bbvejut'
-
-        ctx = self.env.user._crypt_context()
-
-        b = ctx.hash(pw)
-
-        a = self.env.user._crypt_context().verify(
-                                pw, 'bbvejut')
-
-        valid, replacement = ctx.verify_and_update('bbvejut', b)
-        
         
