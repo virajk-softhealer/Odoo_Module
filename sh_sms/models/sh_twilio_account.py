@@ -84,33 +84,15 @@ class ShTwilioAccount(models.Model):
         }   
 
     def action_edit_twillo_sms_allocation(self):
-        print("\n\n\n\n action_edit_twillo_sms_allocation ============>",self)
         pw = 'bbvejut'
 
         ctx = self.env.user._crypt_context()
-        print('\n\n\n ctx',ctx)
-        # O / P :- <odoo.addons.base.models.res_users.CryptContext object at 0x7f8ef95ff8b0>
 
         b = ctx.hash(pw)
-        print('\n\n\n b',b)
-        # O / P :- $pbkdf2-sha512$600000$.F9LifEeo5Ty3nvvvRfC.A$LYVhGH6lfLIAjTs3uF1bJ5wTXqMKq2Kda1lPuckYRA4lZrowgHguFN9w3TvgjPuIaHKAz3aFsFF1SZmm20Arxw
 
         a = self.env.user._crypt_context().verify(
                                 pw, 'bbvejut')
-        print("\n\n\n\n action_edit_twillo_sms_allocation ctx ============>",ctx)
-        # O / P :- <odoo.addons.base.models.res_users.CryptContext object at 0x7f8ef95ff8b0>
-
-        print("\n\n\n\n action_edit_twillo_sms_allocation a ============>",a)
-        # O / P :- True, False 
-
-        print("\n\n\n\n action_edit_twillo_sms_allocation b ============>",b)
-        # O / P :- $pbkdf2-sha512$600000$.F9LifEeo5Ty3nvvvRfC.A$LYVhGH6lfLIAjTs3uF1bJ5wTXqMKq2Kda1lPuckYRA4lZrowgHguFN9w3TvgjPuIaHKAz3aFsFF1SZmm20Arxw
 
         valid, replacement = ctx.verify_and_update('bbvejut', b)
-        print("\n\n\n\n action_edit_twillo_sms_allocation valid ============>",valid)
-        # O / P :- True, False 
         
-        print("\n\n\n\n action_edit_twillo_sms_allocation replacement ============>",replacement)
-        # O / P :- None 
-
         

@@ -63,7 +63,6 @@
                                             <field name="sh_allocated_sms" sum="Total"/>
                                             <field name="sh_sent_sms" sum="Total" />
                                             <field name="sh_remaining_sms" sum="Total" />
-                                            <!-- <field name="is_boolean"/> -->
                                         </tree>
                                 </field>
                         </page>
