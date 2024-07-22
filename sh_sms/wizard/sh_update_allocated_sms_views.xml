@@ -1,0 +1,31 @@
+<?xml version='1.0' encoding='utf-8'?>
+<odoo>
+    <!-- UPDATE ALLOCATED SMS FORM VIEW  -->
+    <record id="sh_update_allocated_sms_form_view" model="ir.ui.view">
+        <field name="name">sh.update.allocated.sms.form.view</field>
+        <field name="model">sh.update.allocated.sms</field>
+        <field name="arch" type="xml">
+            <form string="Update Allocated SMS Message">
+                <sheet>
+                    <group>
+                        <field name="sh_update_total_allocated_sms"/>
+                        <field name="password" required="1"/>                     
+                    </group>
+                    <footer>
+                        <button string="Update" class="btn btn-primary" type="object" name="action_update_allocated_sms" />
+                        <button string="Close" class="btn-secondary" special="cancel" />
+                    </footer>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- ACTION  -->
+    <record id="sh_update_allocated_sms_action" model="ir.actions.act_window">
+        <field name="name">sh.update.allocated.sms.action</field>
+        <field name="res_model">sh.update.allocated.sms</field>
+        <field name="view_mode">form</field>
+        <field name="type">ir.actions.act_window</field>
+    </record>
+
+</odoo>

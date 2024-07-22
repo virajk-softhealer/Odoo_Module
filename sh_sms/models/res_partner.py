@@ -201,6 +201,14 @@ class ResPartner(models.Model):
                                 'sh_message':f'Started store visit reminder cron: Twilio account details invalid ..! {e}',
                                 'sh_state':'fail'
                             })
+                    
+                    except Exception as e:
+                        self.env['sh.sms.history'].create({
+                                'sh_partner_id':rec.id,
+                                'sh_store_id':rec.sh_top_store.id,
+                                'sh_message':f'Started store visit reminder cron: {e}',
+                                'sh_state':'fail'
+                            })
 
 
     # IR.ACTION.SERVER METHOD

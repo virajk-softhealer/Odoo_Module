@@ -4,11 +4,12 @@
     <menuitem
         id="sh_twilio_account_menu_root"
         name="Twilio Account"
+        groups="sh_sms.group_sms_management"
         sequence="10"/>
     
     <!-- PARENT MENU  -->
     <menuitem
-        id="_menu"
+        id="sh_sms_menu"
         name="SMS"
         action="sh_sms_history_action"
         parent="sh_twilio_account_menu_root"
@@ -36,7 +37,7 @@
     <menuitem
         id="menu_sms_template_action"
         name="SMS Templates"
-        action="sms.sms_template_action"
+        action="sh_sms_template_action"
         parent="sh_configuration"
         sequence="30"/>
     

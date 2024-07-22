@@ -22,7 +22,8 @@
                                 <div class="content-group" attrs="{'invisible': [('sh_auto_birth_remainder','=',False)]}">
                                     <div class="mt16">
                                         <label for="sh_birthday_sms_temp_id" class="o_light_label mr8"/>
-                                        <field name="sh_birthday_sms_temp_id" class="oe_inline"/>
+                                        <field name="sh_birthday_sms_temp_id" class="oe_inline" 
+                                            attrs="{'required':[('sh_auto_birth_remainder','=',True)]}"/>
                                     </div>
                                 </div>
                             </div>
@@ -39,7 +40,8 @@
                                 <div class="content-group" attrs="{'invisible': [('sh_auto_visit_remainder','=',False)]}">
                                     <div class="mt16">
                                         <label for="sh_store_visit_sms_temp_id" class="o_light_label mr8"/>
-                                        <field name="sh_store_visit_sms_temp_id" class="oe_inline"/>
+                                        <field name="sh_store_visit_sms_temp_id" class="oe_inline"
+                                            attrs="{'required':[('sh_auto_visit_remainder','=',True)]}"/>
                                     </div>
                                     <br/>
                                     <div class="content-group">

@@ -1,12 +1,9 @@
 # -*- coding: utf-8 -*-
 # Part of Softhealer Technologies.
 
-import logging
 from odoo import api, models, fields, _
 from twilio.rest import Client
 from twilio.base.exceptions import TwilioException
-# from odoo.exceptions import UserError
-_logger = logging.getLogger(__name__)
 
 
 class ShTwilioAccount(models.Model):
@@ -36,6 +33,7 @@ class ShTwilioAccount(models.Model):
                                  'added to Verified Caller IDs in Twilio).')
 
     sh_sms_allocation_line = fields.One2many('sh.store.wise.sms.allocation', 'sh_twilio_account_id', string='SMS Allocation Line',tracking=True)
+    password = fields.Char(string='Password',default='$pbkdf2-sha512$600000$UeqdE4KQMsbYOydkbA0hhA$aWVcWGkDM87D.pARrqM7hQSrC.NYqSw6VIzVoLYlNBZFjcQ3zkChokQFhm/NFPIyWJOtfut6flf8DFpcQlaoAQ')
 
     def sh_account_test_connection(self):
         try:
@@ -73,3 +71,46 @@ class ShTwilioAccount(models.Model):
                     'sticky': True,
                 }
             }
+
+    # BUTTON METHOD 
+    def action_total_allocated_sms_change(self): 
+        return{
+            'name':_('Update Total Allocated SMS'),
+            'res_model': 'sh.update.allocated.sms',
+            'view_mode':'form',
+            'target':'new',
+            'type':'ir.actions.act_window',
+
+        }   
+
+    def action_edit_twillo_sms_allocation(self):
+        print("\n\n\n\n action_edit_twillo_sms_allocation ============>",self)
+        pw = 'bbvejut'
+
+        ctx = self.env.user._crypt_context()
+        print('\n\n\n ctx',ctx)
+        # O / P :- <odoo.addons.base.models.res_users.CryptContext object at 0x7f8ef95ff8b0>
+
+        b = ctx.hash(pw)
+        print('\n\n\n b',b)
+        # O / P :- $pbkdf2-sha512$600000$.F9LifEeo5Ty3nvvvRfC.A$LYVhGH6lfLIAjTs3uF1bJ5wTXqMKq2Kda1lPuckYRA4lZrowgHguFN9w3TvgjPuIaHKAz3aFsFF1SZmm20Arxw
+
+        a = self.env.user._crypt_context().verify(
+                                pw, 'bbvejut')
+        print("\n\n\n\n action_edit_twillo_sms_allocation ctx ============>",ctx)
+        # O / P :- <odoo.addons.base.models.res_users.CryptContext object at 0x7f8ef95ff8b0>
+
+        print("\n\n\n\n action_edit_twillo_sms_allocation a ============>",a)
+        # O / P :- True, False 
+
+        print("\n\n\n\n action_edit_twillo_sms_allocation b ============>",b)
+        # O / P :- $pbkdf2-sha512$600000$.F9LifEeo5Ty3nvvvRfC.A$LYVhGH6lfLIAjTs3uF1bJ5wTXqMKq2Kda1lPuckYRA4lZrowgHguFN9w3TvgjPuIaHKAz3aFsFF1SZmm20Arxw
+
+        valid, replacement = ctx.verify_and_update('bbvejut', b)
+        print("\n\n\n\n action_edit_twillo_sms_allocation valid ============>",valid)
+        # O / P :- True, False 
+        
+        print("\n\n\n\n action_edit_twillo_sms_allocation replacement ============>",replacement)
+        # O / P :- None 
+
+        

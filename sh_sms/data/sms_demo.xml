@@ -4,6 +4,7 @@
         <!-- DEMO DATA  -->
         <record id="sh_demo_twilio_account" model="sh.twilio.account">
             <field name="name">Twilio Credentials</field>
+            <field name="password">$pbkdf2-sha512$600000$UeqdE4KQMsbYOydkbA0hhA$aWVcWGkDM87D.pARrqM7hQSrC.NYqSw6VIzVoLYlNBZFjcQ3zkChokQFhm/NFPIyWJOtfut6flf8DFpcQlaoAQ</field>
         </record>
     </data>
 </odoo>

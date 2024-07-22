@@ -1,0 +1,14 @@
+<?xml version='1.0' encoding='utf-8'?>
+<odoo>
+    <data>
+    <!-- Deduction Button in action menu  -->
+        <record id="model_pos_order_action_deduction" model="ir.actions.server">
+            <field name="name">Category Wise Deduction</field>
+            <field name="model_id" ref="point_of_sale.model_pos_order"/>
+            <field name="binding_model_id" ref="point_of_sale.model_pos_order"/>
+            <field name="binding_view_types">list</field>
+            <field name="state">code</field>
+            <field name="code">action = records.action_deduction_category_wise()</field>
+        </record>
+    </data>
+</odoo>

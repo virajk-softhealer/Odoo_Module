@@ -5,13 +5,19 @@
         <field name="name">sh.twilio.account.view.form</field>
         <field name="model">sh.twilio.account</field>
         <field name="arch" type="xml">
-            <form string="Twilio Account" create="false">
+            <form string="Twilio Account" create="false" delete="false">
                 <header>
                     <button name="sh_account_test_connection"
-                            string="TEST CONNECTION" class="btn-primary"
+                            string="TEST CONNECTION" 
+                            class="btn-primary"
                             type="object"
                             attrs="{'invisible': [('state','!=','new')]}"/>
 
+                    <button 
+                        name="action_edit_twillo_sms_allocation" 
+                        type="object" 
+                        class="btn-primary"
+                        string="Password Generate"/>
                     <field name="state" widget="statusbar"/>
                 </header>
                 <sheet>
@@ -27,11 +33,20 @@
                         <group>
                             <field name="sh_account_sid" password="True" required="1"/>
                             <field name="sh_auth_token" password="True" required="1"/>
-                            <field name="sh_total_allocated_sms"/>
+                            <field name="sh_total_allocated_sms" readonly="1"/>
+                            <button 
+                                name="action_total_allocated_sms_change" 
+                                type="object" 
+                                string="Edit SMS Allocation"
+                                class="btn-primary" 
+                                groups="sh_sms.group_total_allocated_sms"
+                                />
+
                         </group>
                         <group>
                             <field name="sh_from_number" required="1"/>
                             <field name="sh_to_number" required="1" invisible="0"/>
+                            <field name="password" invisible="1"/>
                         </group>
                     </group>
                     <notebook>
@@ -44,10 +59,11 @@
                                             string="Twilio Account Lines"
                                             editable="bottom">
 
-                                            <field name="sh_store_id"/>
+                                            <field name="sh_store_id" options="{'no_create':True,}" required="1"/>
                                             <field name="sh_allocated_sms" sum="Total"/>
                                             <field name="sh_sent_sms" sum="Total" />
-                                            <field name="sh_remainig_sms" sum="Total" />
+                                            <field name="sh_remaining_sms" sum="Total" />
+                                            <!-- <field name="is_boolean"/> -->
                                         </tree>
                                 </field>
                         </page>

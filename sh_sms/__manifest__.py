@@ -17,14 +17,17 @@
         'data/ir_action_data.xml',
         'data/sms_demo.xml',
         'security/ir.model.access.csv',
+        'security/sms_groups.xml',
 
         'wizard/sh_sms_text_message_views.xml',
         'wizard/sh_loyalty_point_views.xml',
+        'wizard/sh_update_allocated_sms_views.xml',
 
         'views/res_config_settings_views.xml',
         'views/sh_twilio_acccount_views.xml',   
         'views/sh_sms_history_views.xml',
         'views/res_partner_views.xml',
+        'views/sms_template.xml',
         'views/sh_sms_menus.xml',
     ],
     # "demo": [
