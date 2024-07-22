@@ -14,14 +14,14 @@ class ProductTemplate(models.Model):
     def default_get(self, fields_list):
         default_vals = super(ProductTemplate, self).default_get(fields_list)
 
-        default_vals['detailed_type'] = 'product'
+        default_vals['available_in_pos'] = True
 
         return default_vals
 
-    def sh_action_detailed_type(self):
+    def sh_action_detailed_pos_ticked(self):
         query = """ 
-            UPDATE product_template SET detailed_type = 'product', type = 'product'
-                WHERE detailed_type = 'consu'
+            UPDATE product_template SET available_in_pos = true
+                WHERE available_in_pos = false
                 RETURNING id;         
         """
 
